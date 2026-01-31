@@ -1,0 +1,38 @@
+baseURL = "https://troinich.pro/"
+languageCode = "en-us"
+title = "Vladislav Troinich"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  description = "Vladislav Troinich - Lead Software Engineer"
+  name = "Vladislav Troinich"
+  tagline = "Lead Software Engineer"
+  avatar = "/images/profile.png"
+  banner = "/images/1666591946603.jpeg"
+
+[[params.contacts]]
+  icon = "email"
+  label = "Email"
+  url = "mailto:vladislav@troinich.pro"
+
+[[params.contacts]]
+  icon = "linkedin"
+  label = "LinkedIn"
+  url = "https://www.linkedin.com/in/vladtr"
+
+[[params.contacts]]
+  icon = "github"
+  label = "GitHub"
+  url = "https://github.com/antlad"
+
+[[params.contacts]]
+  icon = "upwork"
+  label = "Upwork"
+  url = "https://www.upwork.com/freelancers/vladtroinich"
+
+[[params.contacts]]
+  icon = "telegram"
+  label = "Telegram"
+  url = "https://t.me/antlad"

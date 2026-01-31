@@ -1,0 +1,15 @@
+{{ with .Params.projects }}
+  <div class="projects-grid">
+    {{ range . }}
+      <div class="project-card">
+        <h3 class="project-name">
+          {{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+        </h3>
+        {{ with .description }}
+          <p class="project-description">{{ . }}</p>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+{{ end }}
+{{ with .Content }}{{ . }}{{ end }}

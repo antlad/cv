@@ -1,0 +1,32 @@
+{{ define "main" }}
+  {{ range sort (where .Site.RegularPages "Section" "sections") "Weight" }}
+    <section id="{{ .Params.section_id }}" class="section">
+      {{ if .Params.collapsible }}
+      <details class="collapsible">
+        <summary><h2>{{ .Title }}</h2></summary>
+        <div class="collapsible-content">
+      {{ else }}
+        <h2>{{ .Title }}</h2>
+      {{ end }}
+
+      {{ if eq .Params.section_id "experience" }}
+        {{ partial "experience.html" . }}
+      {{ else if eq .Params.section_id "skills" }}
+        {{ partial "skills.html" . }}
+      {{ else if eq .Params.section_id "projects" }}
+        {{ partial "projects.html" . }}
+      {{ else if eq .Params.section_id "education" }}
+        {{ partial "education.html" . }}
+      {{ else }}
+        <div class="content">
+          {{ .Content }}
+        </div>
+      {{ end }}
+
+      {{ if .Params.collapsible }}
+        </div>
+      </details>
+      {{ end }}
+    </section>
+  {{ end }}
+{{ end }}

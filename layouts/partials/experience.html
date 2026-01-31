@@ -1,0 +1,17 @@
+{{ with .Params.experience }}
+  {{ range . }}
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <h3 class="item-title">{{ .role }}</h3>
+          <span class="item-subtitle">{{ .company }}</span>
+        </div>
+        <span class="item-period">{{ .period }}</span>
+      </div>
+      {{ with .description }}
+        <p class="item-description">{{ . }}</p>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+{{ with .Content }}{{ . }}{{ end }}

@@ -1,0 +1,13 @@
+{{ with .Params.skill_groups }}
+  {{ range . }}
+    <div class="skill-group">
+      <h3 class="skill-group-name">{{ .name }}</h3>
+      <div class="skill-tags">
+        {{ range .skills }}
+          <span class="tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
+{{ with .Content }}{{ . }}{{ end }}

@@ -1,0 +1,463 @@
+/* ===== Custom Properties ===== */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #2d2d2d;
+  --color-text-secondary: #555555;
+  --color-heading: #1a1a1a;
+  --color-link: #0066cc;
+  --color-link-hover: #004499;
+  --color-border: #e0e0e0;
+  --color-tag-bg: #f0f0f0;
+  --color-tag-text: #333333;
+  --color-card-bg: #f8f8f8;
+
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --max-width: 800px;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1a1a;
+    --color-text: #d4d4d4;
+    --color-text-secondary: #a0a0a0;
+    --color-heading: #e8e8e8;
+    --color-link: #6ab0f3;
+    --color-link-hover: #8ec8ff;
+    --color-border: #333333;
+    --color-tag-bg: #2a2a2a;
+    --color-tag-text: #cccccc;
+    --color-card-bg: #222222;
+  }
+}
+
+/* ===== Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Base ===== */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-stack);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-tag-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+/* ===== Screen reader only ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===== Header / Hero ===== */
+.hero {
+  text-align: center;
+  padding-bottom: var(--spacing-2xl);
+}
+
+.hero-banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: -60px;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-body {
+  position: relative;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--spacing-md);
+  border: 4px solid var(--color-bg);
+  position: relative;
+}
+
+.hero h1 {
+  color: var(--color-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+}
+
+.tagline {
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: var(--spacing-lg);
+  padding: 0.4rem 1rem;
+  font-family: var(--font-stack);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  background: var(--color-tag-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.print-btn:hover {
+  color: var(--color-heading);
+  border-color: var(--color-text-secondary);
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.contacts a {
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.contacts a:hover {
+  color: var(--color-link);
+}
+
+.contacts svg {
+  display: block;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.section h2 {
+  color: var(--color-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section .content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.section .content ul {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+.section .content li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ===== Experience / Education Items ===== */
+.item {
+  margin-bottom: var(--spacing-xl);
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.item-title {
+  color: var(--color-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.item-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.item-period {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.item-description {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* ===== Skills ===== */
+.skill-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group-name {
+  color: var(--color-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.tag {
+  display: inline-block;
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* ===== Collapsible Sections ===== */
+.collapsible {
+  border: none;
+}
+
+.collapsible summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.collapsible summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapsible summary::before {
+  content: "▸";
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.collapsible[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.collapsible summary h2 {
+  margin-bottom: 0;
+}
+
+.collapsible-content {
+  padding-top: var(--spacing-lg);
+}
+
+/* ===== Projects ===== */
+.projects-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.project-card {
+  background: var(--color-card-bg);
+  padding: var(--spacing-lg);
+  border-radius: 6px;
+}
+
+.project-name {
+  color: var(--color-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.project-description {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ===== WES Badge ===== */
+.wes-badge {
+  margin-top: var(--spacing-lg);
+}
+
+.wes-badge a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-tag-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.wes-badge a:hover {
+  border-color: var(--color-link);
+  color: var(--color-link);
+}
+
+.wes-badge svg {
+  flex-shrink: 0;
+  color: #4caf50;
+}
+
+/* ===== Footer ===== */
+.footer {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .hero h1 {
+    font-size: 1.625rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .item-header {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .item-period {
+    font-size: 0.8rem;
+  }
+
+  .contacts {
+    gap: var(--spacing-md);
+  }
+
+  .hero-banner {
+    height: 140px;
+    border-radius: 6px;
+    margin-bottom: -48px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* ===== Print ===== */
+@media print {
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  .footer,
+  .print-btn {
+    display: none;
+  }
+
+  .contacts a {
+    color: #000;
+  }
+
+  .section {
+    border-top-color: #ccc;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  .contacts a::after {
+    content: none;
+  }
+
+  .hero-banner {
+    display: none;
+  }
+
+  .avatar {
+    border: none;
+  }
+}

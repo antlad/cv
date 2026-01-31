@@ -1,0 +1,24 @@
+<header class="hero">
+  {{ with .Site.Params.banner }}
+    <div class="hero-banner">
+      <img src="{{ . }}" alt="" class="banner-img">
+    </div>
+  {{ end }}
+  <div class="hero-body">
+    {{ with .Site.Params.avatar }}
+      <img src="{{ . }}" alt="{{ $.Site.Params.name }}" class="avatar">
+    {{ end }}
+    <h1>{{ .Site.Params.name }}</h1>
+  <p class="tagline">{{ .Site.Params.tagline }}</p>
+  {{ with .Site.Params.contacts }}
+    <nav class="contacts" aria-label="Contact links">
+      {{ range . }}
+        <a href="{{ .url }}" title="{{ .label }}" rel="noopener noreferrer" target="_blank">
+          {{ partial "icons.html" (dict "icon" .icon) }}
+          <span class="sr-only">{{ .label }}</span>
+        </a>
+      {{ end }}
+    </nav>
+  {{ end }}
+  </div>
+</header>
