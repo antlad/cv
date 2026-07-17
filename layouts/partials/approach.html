@@ -1,0 +1,20 @@
+{{ $section := .Site.Data.home.approach }}
+<section class="section section-dark" id="approach" aria-labelledby="approach-title">
+  <div class="page-shell">
+    <div class="section-heading section-heading-dark">
+      <p class="section-number">02 / Approach</p>
+      <div>
+        <h2 id="approach-title">{{ $section.title }}</h2>
+        <p class="approach-statement">{{ $section.statement }}</p>
+      </div>
+    </div>
+    <ol class="approach-list">
+      {{ range $section.steps }}
+        <li>
+          <h3>{{ .title }}</h3>
+          <p>{{ .description }}</p>
+        </li>
+      {{ end }}
+    </ol>
+  </div>
+</section>

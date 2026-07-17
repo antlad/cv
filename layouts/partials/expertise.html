@@ -1,0 +1,37 @@
+{{ $section := .Site.Data.home.expertise }}
+<section class="section section-light" id="expertise" aria-labelledby="expertise-title">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="section-number">04 / Expertise</p>
+      <div>
+        <h2 id="expertise-title">{{ $section.title }}</h2>
+        <p>{{ $section.intro }}</p>
+      </div>
+    </div>
+    <div class="expertise-grid">
+      {{ range $section.groups }}
+        <div class="expertise-group">
+          <h3>{{ .name }}</h3>
+          <ul>
+            {{ range .items }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
+    <div class="research-education-grid">
+      <article class="research-card">
+        <p class="mini-label">Applied R&amp;D</p>
+        <h3>{{ $section.research.title }}</h3>
+        <p>{{ $section.research.description }}</p>
+      </article>
+      <aside class="education-card" aria-labelledby="education-title">
+        <p class="mini-label">Foundation</p>
+        <h3 id="education-title">{{ $section.education.title }}</h3>
+        <ul>
+          {{ range $section.education.items }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <a class="credential-link" href="https://badges.wes.org/Evidence?i=0a3c1f9b-8e83-412d-a9f5-4837df67f493&amp;type=us" rel="noopener noreferrer" target="_blank">View WES credential evaluation <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </div>
+</section>

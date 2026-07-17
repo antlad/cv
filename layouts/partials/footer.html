@@ -1,3 +1,18 @@
 <footer class="footer">
-  <p>&copy; {{ now.Year }} {{ .Site.Params.name }}</p>
+  <div class="page-shell footer-inner">
+    <div>
+      <strong>{{ .Site.Params.name }}</strong>
+      <p>{{ .Site.Params.role }} · {{ .Site.Params.location }}</p>
+    </div>
+    <nav class="footer-links" aria-label="Profile links">
+      {{ range .Site.Params.contacts }}
+        {{ if eq .icon "email" }}
+          <a href="{{ .url }}">{{ .label }}</a>
+        {{ else }}
+          <a href="{{ .url }}" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
+    <p class="copyright">&copy; {{ now.Year }}</p>
+  </div>
 </footer>

@@ -1,16 +1,18 @@
 baseURL = "https://troinich.pro/"
 languageCode = "en-us"
-title = "Vladislav Troinich"
+title = "Vladislav Troinich — Lead Go Engineer & Software Architect"
+disableKinds = ["taxonomy", "term"]
 
 [markup.goldmark.renderer]
   unsafe = true
 
 [params]
-  description = "Vladislav Troinich - Lead Software Engineer"
+  description = "Lead Go engineer and hands-on software architect specializing in distributed systems, industrial and edge data platforms, reliability, performance, and edge-to-cloud delivery."
   name = "Vladislav Troinich"
-  tagline = "Lead Software Engineer"
+  role = "Lead Go Engineer & Software Architect"
+  location = "Tbilisi, Georgia"
   avatar = "/images/profile.png"
-  banner = "/images/1666591946603.jpeg"
+  social_image = "/images/profile.png"
 
 [[params.contacts]]
   icon = "email"
@@ -30,7 +32,7 @@ title = "Vladislav Troinich"
 [[params.contacts]]
   icon = "upwork"
   label = "Upwork"
-  url = "https://www.upwork.com/freelancers/vladtroinich"
+  url = "https://www.upwork.com/freelancers/~01ac848cb2c73cf8b3"
 
 [[params.contacts]]
   icon = "telegram"

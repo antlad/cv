@@ -1,0 +1,156 @@
+hero:
+  eyebrow: "Lead Go Engineer · Hands-on Software Architect"
+  title: "I design and stabilize distributed systems that move critical data reliably."
+  summary: >-
+    I lead architecture and implementation across industrial connectivity,
+    data ingestion, processing, storage, and cloud delivery—turning difficult
+    production constraints into systems teams can operate and evolve.
+  signals:
+    - "Architecture connected to delivery"
+    - "Production reliability and performance"
+    - "Technical direction with hands-on implementation"
+
+capabilities:
+  title: "Where I add leverage"
+  intro: >-
+    I work best on systems where reliability, data flow, resource constraints,
+    and long-term maintainability all matter at once.
+  items:
+    - title: "Distributed backend architecture"
+      description: >-
+        Clarify service boundaries, data ownership, failure modes, and a
+        modernization path that a team can execute safely.
+    - title: "Reliable data pipelines"
+      description: >-
+        Improve buffering, retry, idempotency, ordering, backpressure,
+        observability, and recovery across the data path.
+    - title: "Edge-to-cloud systems"
+      description: >-
+        Design dependable movement of device and operational data through
+        collection, processing, storage, and upstream delivery.
+    - title: "Go performance and concurrency"
+      description: >-
+        Diagnose CPU, memory, I/O, database, and coordination bottlenecks in
+        production services, then target the changes that matter.
+    - title: "Cross-cutting technical change"
+      description: >-
+        Turn ambiguous platform-wide goals into clear architecture, scoped
+        work, implementation guidance, and reviewable milestones.
+    - title: "Technical rescue and modernization"
+      description: >-
+        Assess a difficult codebase, establish the highest-value priorities,
+        and correct critical areas without defaulting to a rewrite.
+
+approach:
+  title: "Architecture that stays accountable to production"
+  statement: >-
+    I do not separate architecture from delivery. I stay close enough to the
+    code and production behavior to verify that the design actually works.
+  steps:
+    - title: "Frame the real problem"
+      description: "Understand constraints, failure modes, and the business outcome behind the request."
+    - title: "Inspect the evidence"
+      description: "Read the architecture, code, runtime behavior, and operational signals before prescribing change."
+    - title: "Set technical direction"
+      description: "Produce a prioritized path with explicit trade-offs, risks, and ownership boundaries."
+    - title: "Deliver the high-risk work"
+      description: "Implement critical pieces or guide contributors where correctness and design intent matter most."
+    - title: "Establish the new baseline"
+      description: "Review designs and code until the team can maintain and extend the approach confidently."
+
+experience:
+  title: "Selected experience"
+  intro: >-
+    My career has stayed close to systems that cannot treat correctness,
+    reliability, or performance as afterthoughts.
+  items:
+    - role: "Lead Software Engineer"
+      company: "Litmus Automation"
+      period: "2020 — present"
+      label: "Industrial edge and data systems"
+      description: >-
+        Lead technical work across industrial connectivity, collection and
+        normalization, analytics and storage, and reliable delivery to cloud
+        and enterprise systems. Define architecture, decompose cross-cutting
+        changes, review designs and code, and remain hands-on in critical Go services.
+    - role: "Senior Software Engineer"
+      company: "Litmus Automation"
+      period: "2017 — 2020"
+      label: "Production Go services"
+      description: >-
+        Built backend and edge services in Go, C++, and Python for an
+        industrial data platform, contributing to architecture, database
+        integrations, performance work, device-data processing, and upstream delivery.
+    - role: "Senior Software Engineer"
+      company: "Sberbank Technology"
+      period: "2015 — 2017"
+      label: "Financial risk infrastructure"
+      description: >-
+        Developed a distributed high-performance risk calculation system,
+        implemented core C++ computation modules, and helped modernize backend
+        architecture and Linux delivery.
+    - role: "Software Developer"
+      company: "NIPK Electron"
+      period: "2012 — 2015"
+      label: "Distributed medical imaging"
+      description: >-
+        Built clustered PACS and DICOM services with high availability,
+        replication, distributed storage, cross-platform delivery, testing,
+        and deployment automation.
+    - role: "Software Engineer"
+      company: "Bank Otkritie"
+      period: "2008 — 2012"
+      label: "Engineering foundation"
+      description: >-
+        Developed banking applications, client messaging systems, and internal
+        tools while progressing from a part-time junior role to software engineer.
+
+expertise:
+  title: "Technical depth"
+  intro: >-
+    Deepest in Go and distributed backend systems, with a broader systems
+    foundation that helps when software meets constrained infrastructure,
+    unusual data, or demanding operational environments.
+  groups:
+    - name: "Core"
+      items:
+        - "Go"
+        - "Distributed systems"
+        - "Microservices"
+        - "Software architecture"
+        - "Data ingestion and processing"
+        - "Performance and reliability"
+    - name: "Systems foundation"
+      items:
+        - "C++"
+        - "Python"
+        - "Linux"
+        - "Docker and Kubernetes"
+        - "Databases and APIs"
+        - "Messaging and integrations"
+    - name: "Applied R&D"
+      items:
+        - "PyTorch model design and training"
+        - "Large financial datasets"
+        - "Crypto and financial systems"
+        - "Local LLM inference"
+        - "Private coding-agent workflows"
+  research:
+    title: "ML engineering, private AI, and crypto"
+    description: >-
+      I am keenly interested in crypto and financial systems. I have designed
+      and trained PyTorch models on large financial datasets, building the
+      surrounding data-generation, experiment-management, and GPU-training
+      pipelines. I also run local LLM inference and private coding-agent workflows.
+  education:
+    title: "Education"
+    items:
+      - "Master's degree in Information Systems · 2011"
+      - "Bachelor's degree in Information Systems · 2009"
+
+contact:
+  title: "Have a difficult backend or data-platform problem?"
+  description: >-
+    Send a short description of the system, current symptoms, constraints, and
+    desired outcome. I will start with the questions that reveal the highest-risk assumptions.
+  button: "Discuss an engineering challenge"

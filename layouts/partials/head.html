@@ -3,6 +3,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Site.Title }}</title>
   <meta name="description" content="{{ .Site.Params.description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta name="theme-color" content="#0b252a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ .Site.Params.name }}">
+  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ .Site.Params.social_image | absURL }}">
+  <meta property="og:image:alt" content="Portrait of {{ .Site.Params.name }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ .Site.Title }}">
+  <meta name="twitter:description" content="{{ .Site.Params.description }}">
+  <meta name="twitter:image" content="{{ .Site.Params.social_image | absURL }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230b252a'/%3E%3Cpath d='M13 17h11l8 25 8-25h11L38 50H26L13 17Z' fill='%237ccbc0'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="{{ .Site.Params.avatar }}">
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ $sameAs := slice }}
+  {{ range .Site.Params.contacts }}
+    {{ if ne .icon "email" }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+  {{ end }}
+  {{ $schema := dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" .Site.Params.name
+    "url" .Site.BaseURL
+    "image" (.Site.Params.social_image | absURL)
+    "jobTitle" .Site.Params.role
+    "address" (dict "@type" "PostalAddress" "addressLocality" "Tbilisi" "addressCountry" "Georgia")
+    "worksFor" (dict "@type" "Organization" "name" "Litmus Automation")
+    "sameAs" $sameAs
+  }}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
 </head>

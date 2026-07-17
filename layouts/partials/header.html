@@ -1,24 +1,17 @@
-<header class="hero">
-  {{ with .Site.Params.banner }}
-    <div class="hero-banner">
-      <img src="{{ . }}" alt="" class="banner-img">
-    </div>
-  {{ end }}
-  <div class="hero-body">
-    {{ with .Site.Params.avatar }}
-      <img src="{{ . }}" alt="{{ $.Site.Params.name }}" class="avatar">
-    {{ end }}
-    <h1>{{ .Site.Params.name }}</h1>
-  <p class="tagline">{{ .Site.Params.tagline }}</p>
-  {{ with .Site.Params.contacts }}
-    <nav class="contacts" aria-label="Contact links">
-      {{ range . }}
-        <a href="{{ .url }}" title="{{ .label }}" rel="noopener noreferrer" target="_blank">
-          {{ partial "icons.html" (dict "icon" .icon) }}
-          <span class="sr-only">{{ .label }}</span>
-        </a>
-      {{ end }}
+<header class="site-header">
+  <div class="page-shell header-inner">
+    <a class="brand" href="#top" aria-label="{{ .Site.Params.name }} — home">
+      <span class="brand-mark" aria-hidden="true">VT</span>
+      <span class="brand-copy">
+        <strong>{{ .Site.Params.name }}</strong>
+        <span>{{ .Site.Params.role }}</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#approach">Approach</a>
+      <a href="#experience">Experience</a>
+      <a class="nav-cta" href="mailto:vladislav@troinich.pro">Contact</a>
     </nav>
-  {{ end }}
   </div>
 </header>

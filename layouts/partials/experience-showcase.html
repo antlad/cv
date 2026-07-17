@@ -1,0 +1,27 @@
+{{ $section := .Site.Data.home.experience }}
+<section class="section section-paper" id="experience" aria-labelledby="experience-title">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="section-number">03 / Experience</p>
+      <div>
+        <h2 id="experience-title">{{ $section.title }}</h2>
+        <p>{{ $section.intro }}</p>
+      </div>
+    </div>
+    <div class="experience-list">
+      {{ range $section.items }}
+        <article class="experience-item">
+          <div class="experience-meta">
+            <p class="experience-period">{{ .period }}</p>
+            <p class="experience-label">{{ .label }}</p>
+          </div>
+          <div class="experience-body">
+            <h3>{{ .role }}</h3>
+            <p class="experience-company">{{ .company }}</p>
+            <p>{{ .description }}</p>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

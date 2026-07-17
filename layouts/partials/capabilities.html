@@ -1,0 +1,21 @@
+{{ $section := .Site.Data.home.capabilities }}
+<section class="section section-light" id="capabilities" aria-labelledby="capabilities-title">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="section-number">01 / Capabilities</p>
+      <div>
+        <h2 id="capabilities-title">{{ $section.title }}</h2>
+        <p>{{ $section.intro }}</p>
+      </div>
+    </div>
+    <div class="capability-grid">
+      {{ range $index, $item := $section.items }}
+        <article class="capability-card">
+          <span class="card-number">{{ printf "%02d" (add $index 1) }}</span>
+          <h3>{{ $item.title }}</h3>
+          <p>{{ $item.description }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
