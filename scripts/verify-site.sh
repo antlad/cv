@@ -21,7 +21,8 @@ assert_contains() {
   fi
 }
 
-assert_contains 'I design and stabilize distributed systems that move critical data reliably.'
+assert_contains 'Lead Go Engineer & Software Architect'
+assert_contains 'Distributed · Edge · Data Systems'
 assert_contains 'id=capabilities'
 assert_contains 'id=approach'
 assert_contains 'id=experience'
@@ -33,6 +34,17 @@ assert_contains 'rel=canonical'
 assert_contains 'property="og:title"'
 assert_contains 'name=twitter:card'
 assert_contains 'application/ld+json'
+assert_contains 'Building production software since 2008'
+assert_contains 'MQTT'
+assert_contains 'NATS'
+assert_contains 'Kafka'
+assert_contains 'PostgreSQL'
+assert_contains 'InfluxDB'
+assert_contains 'Redis'
+assert_contains 'gRPC'
+assert_contains 'GraphQL'
+assert_contains 'Prometheus'
+assert_contains 'Independent R&amp;D'
 assert_contains 'PyTorch'
 assert_contains 'large financial datasets'
 assert_contains 'crypto'
@@ -44,8 +56,15 @@ if rg --ignore-case --quiet \
   exit 1
 fi
 
-if rg --quiet '01 / 04|class=data-flow|do not generalize' "$portal_index"; then
+if rg --quiet '01 / 04|class=data-flow|do not generalize|I design and stabilize distributed systems' "$portal_index"; then
   printf 'Removed decorative or ML-results language found in generated page.\n' >&2
+  exit 1
+fi
+
+if rg --ignore-case --quiet \
+  'clickhouse|confidential (crypto )?exchange|production exchange platform' \
+  "$portal_index"; then
+  printf 'Prohibited technology or confidential engagement language found in generated page.\n' >&2
   exit 1
 fi
 

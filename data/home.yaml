@@ -1,9 +1,10 @@
 hero:
-  eyebrow: "Lead Go Engineer · Hands-on Software Architect"
-  title: "I design and stabilize distributed systems that move critical data reliably."
+  eyebrow: "Distributed · Edge · Data Systems"
+  title: "Lead Go Engineer & Software Architect"
   summary: >-
-    I lead architecture and implementation across industrial connectivity,
-    data ingestion, processing, storage, and cloud delivery—turning difficult
+    Building production software since 2008, I lead architecture and
+    implementation across industrial connectivity, data ingestion, processing,
+    storage, reliability, and cloud and enterprise delivery—turning difficult
     production constraints into systems teams can operate and evolve.
   signals:
     - "Architecture connected to delivery"
@@ -59,7 +60,7 @@ approach:
       description: "Review designs and code until the team can maintain and extend the approach confidently."
 
 experience:
-  title: "Selected experience"
+  title: "Work experience"
   intro: >-
     My career has stayed close to systems that cannot treat correctness,
     reliability, or performance as afterthoughts.
@@ -76,7 +77,7 @@ experience:
     - role: "Senior Software Engineer"
       company: "Litmus Automation"
       period: "2017 — 2020"
-      label: "Production Go services"
+      label: "Industrial edge and data systems"
       description: >-
         Built backend and edge services in Go, C++, and Python for an
         industrial data platform, contributing to architecture, database
@@ -112,36 +113,42 @@ expertise:
     foundation that helps when software meets constrained infrastructure,
     unusual data, or demanding operational environments.
   groups:
-    - name: "Core"
+    - name: "Languages & architecture"
       items:
         - "Go"
+        - "C++"
+        - "Python"
         - "Distributed systems"
         - "Microservices"
         - "Software architecture"
-        - "Data ingestion and processing"
         - "Performance and reliability"
-    - name: "Systems foundation"
+    - name: "Platforms & data"
       items:
-        - "C++"
-        - "Python"
         - "Linux"
-        - "Docker and Kubernetes"
-        - "Databases and APIs"
-        - "Messaging and integrations"
-    - name: "Applied R&D"
+        - "Docker"
+        - "Kubernetes"
+        - "PostgreSQL"
+        - "InfluxDB"
+        - "Redis"
+        - "Prometheus"
+        - "Cloud environments"
+    - name: "Messaging & APIs"
       items:
-        - "PyTorch model design and training"
-        - "Large financial datasets"
-        - "Crypto and financial systems"
-        - "Local LLM inference"
-        - "Private coding-agent workflows"
+        - "MQTT"
+        - "NATS"
+        - "Kafka"
+        - "gRPC"
+        - "REST"
+        - "GraphQL"
+        - "Data ingestion and processing"
   research:
-    title: "ML engineering, private AI, and crypto"
+    title: "Independent R&D"
     description: >-
-      I am keenly interested in crypto and financial systems. I have designed
-      and trained PyTorch models on large financial datasets, building the
-      surrounding data-generation, experiment-management, and GPU-training
-      pipelines. I also run local LLM inference and private coding-agent workflows.
+      Outside my core professional work, I am keenly interested in crypto and
+      financial systems. My side projects include designing and training
+      PyTorch models on large financial datasets, along with the surrounding
+      data-generation, experiment-management, and GPU-training pipelines. I
+      also run local LLM inference and experiment with private coding-agent workflows.
   education:
     title: "Education"
     items:
