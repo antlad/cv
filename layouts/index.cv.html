@@ -1,0 +1,81 @@
+{{- $d := .Site.Data.home -}}
+{{- $p := .Site.Params -}}
+{{- $css := resources.Get "css/cv.css" | minify | fingerprint -}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ $p.name }} — {{ $p.role }} — CV</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body>
+
+<header class="cv-header">
+  <h1 class="cv-name">{{ $p.name }}</h1>
+  <p class="cv-role">{{ $p.role }}</p>
+  {{/* Rendered as anchors so the links stay clickable inside the PDF, with
+       display text kept short — the raw Upwork profile URL is unreadable. */}}
+  <ul class="cv-contacts">
+    <li>{{ $p.location }}</li>
+    {{- range $p.contacts }}
+    <li><a href="{{ .url }}">
+      {{- if eq .icon "email" -}}
+        {{ replaceRE "^mailto:" "" .url }}
+      {{- else if eq .icon "upwork" -}}
+        Upwork profile
+      {{- else -}}
+        {{ replaceRE "^https?://(www\\.)?" "" .url }}
+      {{- end -}}
+    </a></li>
+    {{- end }}
+    <li><a href="{{ .Site.BaseURL }}">troinich.pro</a></li>
+  </ul>
+</header>
+
+<section class="cv-section">
+  <h2 class="cv-section-title">Profile</h2>
+  <p class="cv-summary">{{ $d.hero.summary }}</p>
+</section>
+
+<section class="cv-section">
+  <h2 class="cv-section-title">Experience</h2>
+  {{- range $d.experience.items }}
+  <article class="cv-role-entry">
+    <div class="cv-role-head">
+      <h3 class="cv-role-title">{{ .role }}</h3>
+      <span class="cv-role-period">{{ .period }}</span>
+    </div>
+    <p class="cv-role-company">{{ .company }}{{ with .label }} <span class="cv-role-label">· {{ . }}</span>{{ end }}</p>
+    <p class="cv-role-desc">{{ .description }}</p>
+  </article>
+  {{- end }}
+</section>
+
+<section class="cv-section">
+  <h2 class="cv-section-title">Technical depth</h2>
+  {{- range $d.expertise.groups }}
+  <div class="cv-skill-group">
+    <p class="cv-skill-name">{{ .name }}</p>
+    <p class="cv-skill-items">{{ delimit .items " · " }}</p>
+  </div>
+  {{- end }}
+</section>
+
+<section class="cv-section">
+  <h2 class="cv-section-title">{{ $d.expertise.research.title }}</h2>
+  <p class="cv-research-desc">{{ $d.expertise.research.description }}</p>
+</section>
+
+<section class="cv-section">
+  <h2 class="cv-section-title">{{ $d.expertise.education.title }}</h2>
+  <ul class="cv-education">
+    {{- range $d.expertise.education.items }}
+    <li>{{ . }}</li>
+    {{- end }}
+  </ul>
+</section>
+
+</body>
+</html>

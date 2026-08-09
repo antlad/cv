@@ -6,6 +6,16 @@ disableKinds = ["taxonomy", "term"]
 [markup.goldmark.renderer]
   unsafe = true
 
+# Renders layouts/index.cv.html to /cv.html, the print source for /cv.pdf.
+# RSS must stay in the list: dropping it removes index.xml.
+[outputFormats.CV]
+  mediaType = "text/html"
+  baseName = "cv"
+  isHTML = true
+
+[outputs]
+  home = ["HTML", "RSS", "CV"]
+
 [params]
   description = "Lead Go engineer and hands-on software architect specializing in distributed systems, industrial and edge data platforms, reliability, performance, and edge-to-cloud delivery."
   name = "Vladislav Troinich"

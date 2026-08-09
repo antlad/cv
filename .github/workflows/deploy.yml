@@ -43,6 +43,43 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      # Non-fatal on purpose: a Chrome failure must not block the site deploy.
+      # If this step fails the site still ships, without a refreshed cv.pdf.
+      - name: Set up Chrome
+        id: setup-chrome
+        continue-on-error: true
+        uses: browser-actions/setup-chrome@v1
+        with:
+          install-dependencies: true
+
+      # Exported over HTTP, not file:// — Hugo emits root-absolute fingerprinted
+      # asset paths, which file:// resolves against the filesystem root and 404s,
+      # producing a completely unstyled PDF.
+      - name: Export CV to PDF
+        continue-on-error: true
+        if: steps.setup-chrome.outcome == 'success'
+        run: |
+          python3 -m http.server 8741 --bind 127.0.0.1 --directory ./public &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+
+          for _ in $(seq 1 50); do
+            curl -fsS -o /dev/null http://127.0.0.1:8741/cv.html && break
+            sleep 0.2
+          done
+          curl -fsS -o /dev/null http://127.0.0.1:8741/cv.html
+
+          "${{ steps.setup-chrome.outputs.chrome-path }}" \
+            --headless=new \
+            --disable-gpu \
+            --no-sandbox \
+            --no-pdf-header-footer \
+            --virtual-time-budget=10000 \
+            --print-to-pdf=./public/cv.pdf \
+            http://127.0.0.1:8741/cv.html
+
+          test -s ./public/cv.pdf
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

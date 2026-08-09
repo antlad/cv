@@ -1,0 +1,255 @@
+/* Print-first stylesheet for the downloadable CV.
+   Intentionally independent of main.css: the site scales type to the viewport,
+   this scales it to a sheet of A4. */
+
+:root {
+  --ink: #112d32;
+  --ink-soft: #3f585c;
+  --muted: #66777a;
+  --accent: #237d79;
+  --line: rgba(17, 45, 50, 0.18);
+  --font-sans: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 14mm 12mm;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10pt;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.42;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Header ---------- */
+
+.cv-header {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.7rem;
+  margin-bottom: 1.1rem;
+}
+
+.cv-name {
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+
+.cv-role {
+  margin: 0.25rem 0 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.cv-contacts {
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.cv-contacts li::after {
+  content: "·";
+  margin-left: 0.9rem;
+  color: var(--muted);
+}
+
+.cv-contacts li:last-child::after {
+  content: "";
+  margin-left: 0;
+}
+
+/* ---------- Sections ---------- */
+
+.cv-section {
+  margin-bottom: 1.15rem;
+}
+
+.cv-section-title {
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.22rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cv-summary {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ---------- Core strengths ---------- */
+
+/* Two columns of short, self-contained items. DOM order is preserved, so text
+   extraction stays linear — this is not a sidebar layout. */
+.cv-strengths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.4rem;
+}
+
+.cv-strength-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.cv-strength-desc {
+  margin: 0.1rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.36;
+  color: var(--ink-soft);
+}
+
+/* ---------- Experience ---------- */
+
+.cv-role-entry {
+  margin-bottom: 0.75rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-role-entry:last-child {
+  margin-bottom: 0;
+}
+
+.cv-role-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.cv-role-title {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.cv-role-period {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.cv-role-company {
+  margin: 0.05rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.cv-role-company .cv-role-label {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.cv-role-desc {
+  margin: 0.22rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+/* ---------- Technical depth ---------- */
+
+/* Label column is wide enough for the longest group name
+   ("Infrastructure & delivery") to sit on one line. */
+.cv-skill-group {
+  margin-bottom: 0.34rem;
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  gap: 0.8rem;
+  align-items: baseline;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-skill-name {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cv-skill-items {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Research / education ---------- */
+
+.cv-research-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.cv-education {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.cv-education li + li {
+  margin-top: 0.1rem;
+}
+
+/* ---------- Screen preview ---------- */
+
+/* /cv.html is a real page as well as a print source. Give it a sheet-like frame
+   on screen; print rules above are unaffected. */
+@media screen {
+  body {
+    max-width: 210mm;
+    margin: 2rem auto;
+    padding: 14mm;
+    box-shadow: 0 0 0 1px rgba(17, 45, 50, 0.1);
+  }
+}

@@ -53,17 +53,27 @@ patching turns a viewport-scaled landing page into a CV.
 | Header — name, title, location | `hugo.toml` `[params]` |
 | Header — contact links | `hugo.toml` `[[params.contacts]]` |
 | Professional summary | `hero.summary` |
-| Core strengths | `capabilities.items` (6) — title + description |
-| Experience | `experience.items` (5) — role, company, period, description |
-| Technical depth | `expertise.groups` (3) |
+| Experience | `experience.items` — role, company, period, description |
+| Technical depth | `expertise.groups` |
 | Independent R&D | `expertise.research` |
 | Education | `expertise.education` |
 
+Every section iterates over the data rather than naming fixed entries, so
+content added to `data/home.yaml` reaches the CV without template changes. This
+proved out during implementation: `expertise.groups` grew from three to six
+mid-build and the CV absorbed it with no edit.
+
 Excluded: the `approach` five-step section and the `contact` section's
-call-to-action copy ("Have a difficult backend or data-platform problem?" and
-its button). Both are portal-narrative devices that read as pitch copy in a CV,
-and cutting them is what holds the document to two pages. This does not affect
-the contact *links* themselves, which move into the CV header.
+call-to-action copy. Both are portal-narrative devices that read as pitch copy
+in a CV. This does not affect the contact *links*, which move into the CV header.
+
+Also excluded: `capabilities.items`, initially planned as a "Core strengths"
+section. Dropped during implementation — the capabilities partial was removed
+from `layouts/index.html`, so including it in the CV would have contradicted the
+decision to reuse only what the portal actually shows.
+
+The result is a single page. The two-page estimate assumed Core strengths was
+included.
 
 Excluded on policy grounds: the confidential financial-platform role. The brief
 gates it on NDA confirmation, and `scripts/verify-site.sh:62-66` fails the build
@@ -85,8 +95,14 @@ the two have incompatible sizing models.
   pages.
 
 No page numbers. Chrome's `--no-pdf-header-footer` removes them, and CSS `@page`
-margin-box counters are not supported by its print pipeline. Acceptable for a
-two-page document.
+margin-box counters are not supported by its print pipeline. Acceptable at the
+current length.
+
+**Known limitation — font fidelity in CI.** The typeface stack leads with
+"Avenir Next", which exists on macOS but not on the Ubuntu runner. The
+CI-generated PDF will therefore fall back to a different sans-serif and will not
+match a locally generated one. Fixing this properly means self-hosting a webfont
+and embedding it; deferred until the pipeline is confirmed working end to end.
 
 ## Architecture
 
