@@ -6,58 +6,6 @@ hero:
     implementation across industrial connectivity, data ingestion, processing,
     storage, reliability, and cloud and enterprise delivery—turning difficult
     production constraints into systems teams can operate and evolve.
-  signals:
-    - "Architecture connected to delivery"
-    - "Production reliability and performance"
-    - "Technical direction with hands-on implementation"
-
-capabilities:
-  title: "Where I add leverage"
-  intro: >-
-    I work best on systems where reliability, data flow, resource constraints,
-    and long-term maintainability all matter at once.
-  items:
-    - title: "Distributed backend architecture"
-      description: >-
-        Clarify service boundaries, data ownership, failure modes, and a
-        modernization path that a team can execute safely.
-    - title: "Reliable data pipelines"
-      description: >-
-        Improve buffering, retry, idempotency, ordering, backpressure,
-        observability, and recovery across the data path.
-    - title: "Edge-to-cloud systems"
-      description: >-
-        Design dependable movement of device and operational data through
-        collection, processing, storage, and upstream delivery.
-    - title: "Go performance and concurrency"
-      description: >-
-        Diagnose CPU, memory, I/O, database, and coordination bottlenecks in
-        production services, then target the changes that matter.
-    - title: "Cross-cutting technical change"
-      description: >-
-        Turn ambiguous platform-wide goals into clear architecture, scoped
-        work, implementation guidance, and reviewable milestones.
-    - title: "Technical rescue and modernization"
-      description: >-
-        Assess a difficult codebase, establish the highest-value priorities,
-        and correct critical areas without defaulting to a rewrite.
-
-approach:
-  title: "Architecture that stays accountable to production"
-  statement: >-
-    I do not separate architecture from delivery. I stay close enough to the
-    code and production behavior to verify that the design actually works.
-  steps:
-    - title: "Frame the real problem"
-      description: "Understand constraints, failure modes, and the business outcome behind the request."
-    - title: "Inspect the evidence"
-      description: "Read the architecture, code, runtime behavior, and operational signals before prescribing change."
-    - title: "Set technical direction"
-      description: "Produce a prioritized path with explicit trade-offs, risks, and ownership boundaries."
-    - title: "Deliver the high-risk work"
-      description: "Implement critical pieces or guide contributors where correctness and design intent matter most."
-    - title: "Establish the new baseline"
-      description: "Review designs and code until the team can maintain and extend the approach confidently."
 
 experience:
   title: "Work experience"
@@ -105,10 +53,6 @@ experience:
 
 expertise:
   title: "Technical depth"
-  intro: >-
-    Deepest in Go and distributed backend systems, with a broader systems
-    foundation that helps when software meets constrained infrastructure,
-    unusual data, or demanding operational environments.
   groups:
     - name: "Languages"
       items:

@@ -2,10 +2,10 @@
 <section class="section section-light" id="expertise" aria-labelledby="expertise-title">
   <div class="page-shell">
     <div class="section-heading">
-      <p class="section-number">04 / Expertise</p>
+      <p class="section-number">02 / Expertise</p>
       <div>
         <h2 id="expertise-title">{{ $section.title }}</h2>
-        <p>{{ $section.intro }}</p>
+        {{ with $section.intro }}<p>{{ . }}</p>{{ end }}
       </div>
     </div>
     <div class="expertise-grid">
