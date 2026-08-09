@@ -61,9 +61,6 @@ approach:
 
 experience:
   title: "Work experience"
-  intro: >-
-    My career has stayed close to systems that cannot treat correctness,
-    reliability, or performance as afterthoughts.
   items:
     - role: "Lead Software Engineer"
       company: "Litmus Automation"
@@ -113,34 +110,41 @@ expertise:
     foundation that helps when software meets constrained infrastructure,
     unusual data, or demanding operational environments.
   groups:
-    - name: "Languages & architecture"
+    - name: "Languages"
       items:
         - "Go"
         - "C++"
         - "Python"
+    - name: "Architecture"
+      items:
         - "Distributed systems"
         - "Microservices"
         - "Software architecture"
         - "Performance and reliability"
-    - name: "Platforms & data"
+    - name: "Data & storage"
+      items:
+        - "PostgreSQL"
+        - "InfluxDB"
+        - "Redis"
+        - "Embedded KV (BoltDB, BadgerDB, LMDB)"
+    - name: "Messaging & streaming"
+      items:
+        - "MQTT"
+        - "Kafka"
+        - "NATS"
+    - name: "APIs & protocols"
+      items:
+        - "gRPC"
+        - "REST"
+        - "GraphQL"
+    - name: "Infrastructure & delivery"
       items:
         - "Linux"
         - "Docker"
         - "Kubernetes"
-        - "PostgreSQL"
-        - "InfluxDB"
-        - "Redis"
         - "Prometheus"
-        - "Cloud environments"
-    - name: "Messaging & APIs"
-      items:
-        - "MQTT"
-        - "NATS"
-        - "Kafka"
-        - "gRPC"
-        - "REST"
-        - "GraphQL"
-        - "Data ingestion and processing"
+        - "OpenTelemetry"
+        - "GitLab CI/CD"
   research:
     title: "Independent R&D"
     description: >-

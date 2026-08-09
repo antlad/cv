@@ -1,0 +1,45 @@
+Hi Nabil,
+                                                                                                                                                                                                                                        
+I reviewed your connector DAL implementation ( https://github.com/litmusautomation/tahoe-mqtt/pull/57/changes ) and need to share some concerns. I have few with the design decisions behind implementation.
+                                                                                                                                                             
+The task here was to design the persistence layer for connectors. That means deciding what goes in the database, how it's structured, and what the right boundaries are. What I'm seeing in tahoe_connectors is essentially a flat dump of everything the connector has — config, runtime state, topic mappings as a JSON blob, and a Raft fencing token — all in one table. That's not a design, that's a data structure serialized to SQL.
+                                                                                                                                                                                                                                        
+A few concrete things that should have been caught at design time:                                                                                                                                                                    
+   
+Topics as a JSONB array — every update rewrites the full set, can't index individual mappings, concurrent edits silently overwrite each other. This is a textbook case for a separate table with a foreign key. We are working in IIoT - and there could be huge number of topics and they will be edited many times. With this design it will be unmarshaling and marshaling on every update.                  
+                  
+Runtime state in Postgres — state, error, stats change constantly and belong to the running process. We have a gRPC Status() RPC defined for exactly this. Persisting it creates a stale copy that nobody can trust. The database should only own what survives a restart: the configuration. For error reason we could just use termination log feature of k8s. 
+                                                                                                                                                                                                                                        
+leader_term on every row — passed through every method signature but never validated. No WHERE guard. If adding this - need to add into SQL request. And more over why to use it - we have single database just for configuration, where we can use transactions.
+   
+These aren't edge cases or nitpicks. They're the kind of questions I'd expect to work through before writing code: what is this table the source of truth for? What are the access patterns? What changes often vs rarely? Who owns what data? 
+
+Kind regards,
+Vladislav Troinich
+
+Hi Allison,
+
+Thank you, 
+
+I’m trying to be efficient and produce profit to Litmus. Will be continue doing this as well going forward. 
+Last message from Sam Elsner on shoutouts, showing that our effort to make LE software efficient, achieved target. 
+
+Approved on Deel, thanks.
+
+
+Hello Sacha,
+ 
+I understand that this process might not be easy, but I hope you can appreciate my perspective as well. While the base salary is acceptable, it matches what I already have.
+ 
+Assuming responsibility for the entire development process will require significant effort and energy to address issues that have remained unresolved for several years (such as the slow and unstable CI/CD systems that every developer struggles with, and the lack of automated test development, etc..).
+ 
+Given the challenges we’ve faced with hiring expert developers recently (from India and Poland), I believe it’s reasonable to expect a good long-term reward that will motivate me to overcome all the immigration and procedural hurdles involved in changing my life once again.
+ 
+I need a compelling reason to agree to go through immigration and discomfort (after spending two years in Georgia, I clearly understand what to expect). I have just settled everything down, especially since I thought our discussion had concluded after such a long delay.
+ 
+It’s not merely about a $20k difference; I was asking for $80k unlocked per year without a cliff. Considering the projected growth of my existing package (which is, by the way, lower than even conservative estimates), and looking ahead to the next few years, accepting less wouldn’t make it reasonable for me to change things and relocate.
+ 
+Simply moving to the U.S. as it stands doesn’t provide sufficient motivation anymore. In past year the U.S. has revealed aspects about itself that have diminished its allure.
+ 
+Kind Regards,
+Vladislav Troinich

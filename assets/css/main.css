@@ -654,8 +654,12 @@ svg {
   border-left: 1px solid var(--line);
 }
 
-.expertise-group:last-child {
+.expertise-group:nth-child(3n) {
   border-right: 1px solid var(--line);
+}
+
+.expertise-group:nth-child(n + 4) {
+  border-top: 1px solid var(--line);
 }
 
 .expertise-group h3 {
@@ -944,6 +948,10 @@ svg {
   .expertise-group {
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+  }
+
+  .expertise-group:nth-child(n + 4) {
+    border-top: 0;
   }
 
   .expertise-group:last-child {
