@@ -18,6 +18,15 @@
         </div>
       {{ end }}
     </div>
+    {{ with $section.agents }}
+      <div class="agents-block">
+        <div class="agents-block-head">
+          <p class="mini-label">ai practice</p>
+          <h3>{{ .title }}</h3>
+        </div>
+        <p>{{ .description }}</p>
+      </div>
+    {{ end }}
     <div class="research-education-grid">
       <article class="research-card">
         <p class="mini-label">Applied R&amp;D</p>

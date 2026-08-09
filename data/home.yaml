@@ -65,7 +65,6 @@ expertise:
         - "Microservices"
         - "Spec-first design"
         - "TDD"
-        - "Code review"
     - name: "Data & storage"
       items:
         - "PostgreSQL"
@@ -90,6 +89,11 @@ expertise:
         - "Prometheus"
         - "OpenTelemetry"
         - "GitLab CI/CD"
+  agents:
+    title: "Working with agents"
+    description: >-
+      Coding agents are part of my daily development. I write my own skills to
+      extend what they can do and to keep repeatable work fast and consistent.
   research:
     title: "Independent R&D"
     description: >-

@@ -689,6 +689,27 @@ svg {
   border-bottom: 0;
 }
 
+.agents-block {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 2fr);
+  gap: clamp(1.5rem, 4vw, 3.4rem);
+  margin-top: 3rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+}
+
+.agents-block h3 {
+  margin-top: 0.85rem;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 620;
+}
+
+.agents-block > p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
 .research-education-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
@@ -933,7 +954,8 @@ svg {
 
   .capability-grid,
   .expertise-grid,
-  .research-education-grid {
+  .research-education-grid,
+  .agents-block {
     grid-template-columns: 1fr;
   }
 
