@@ -21,8 +21,18 @@
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ $sameAs := slice }}
+  {{ $email := "" }}
   {{ range .Site.Params.contacts }}
-    {{ if ne .icon "email" }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+    {{ if eq .icon "email" }}{{ $email = strings.TrimPrefix "mailto:" .url }}{{ else }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+  {{ end }}
+  {{ $knowsAbout := slice }}
+  {{ range .Site.Data.home.expertise.groups }}
+    {{ range .items }}{{ $knowsAbout = $knowsAbout | append . }}{{ end }}
+  {{ end }}
+  {{ $credentials := slice }}
+  {{ range .Site.Data.home.expertise.education.items }}
+    {{ $name := trim (index (split . "·") 0) " " }}
+    {{ $credentials = $credentials | append (dict "@type" "EducationalOccupationalCredential" "credentialCategory" "degree" "name" $name) }}
   {{ end }}
   {{ $schema := dict
     "@context" "https://schema.org"
@@ -31,8 +41,13 @@
     "url" .Site.BaseURL
     "image" (.Site.Params.social_image | absURL)
     "jobTitle" .Site.Params.role
+    "description" .Site.Params.description
+    "email" $email
     "address" (dict "@type" "PostalAddress" "addressLocality" "Tbilisi" "addressCountry" "Georgia")
     "worksFor" (dict "@type" "Organization" "name" "Litmus Automation")
+    "hasOccupation" (dict "@type" "Occupation" "name" .Site.Params.role)
+    "knowsAbout" $knowsAbout
+    "hasCredential" $credentials
     "sameAs" $sameAs
   }}
   <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>

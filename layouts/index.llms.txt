@@ -1,0 +1,41 @@
+{{- $p := .Site.Params -}}
+{{- $h := .Site.Data.home -}}
+# {{ $p.name }} — {{ $p.role }}
+
+> {{ $h.hero.summary | plainify | chomp }}
+
+Based in {{ $p.location }}. Full CV (PDF): {{ "vladislav-troinich-cv.pdf" | absURL }}
+
+## Experience
+
+{{ range $h.experience.items -}}
+- **{{ .role }}, {{ .company }}** ({{ .period }}) — {{ .description | plainify | chomp }}
+{{ end }}
+## Expertise
+
+{{ range $h.expertise.groups -}}
+- **{{ .name }}:** {{ delimit .items ", " }}
+{{ end }}
+## Working with agents
+
+{{ $h.expertise.agents.description | plainify | chomp }}
+
+## Independent R&D
+
+{{ $h.expertise.research.description | plainify | chomp }}
+
+## Education
+
+{{ range $h.expertise.education.items -}}
+- {{ . }}
+{{ end }}
+## Links
+
+{{ range $p.contacts -}}
+{{ if eq .icon "email" -}}
+- {{ .label }}: {{ strings.TrimPrefix "mailto:" .url }}
+{{ else -}}
+- {{ .label }}: {{ .url }}
+{{ end -}}
+{{ end -}}
+- CV (PDF): {{ "vladislav-troinich-cv.pdf" | absURL }}

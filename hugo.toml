@@ -14,8 +14,16 @@ disableKinds = ["taxonomy", "term"]
   baseName = "cv"
   isHTML = true
 
+# Renders layouts/index.llms.txt to /llms.txt — a plain-markdown summary
+# for LLMs / AI answer engines (see llmstxt.org). Generated from data/home.yaml
+# so it stays in sync with the visible page.
+[outputFormats.LLMS]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+
 [outputs]
-  home = ["HTML", "RSS", "CV"]
+  home = ["HTML", "RSS", "CV", "LLMS"]
 
 [params]
   description = "Lead Go engineer and hands-on software architect specializing in distributed systems, industrial and edge data platforms, reliability, performance, and edge-to-cloud delivery."
