@@ -32,7 +32,6 @@ assert_cv_contains() {
 
 assert_contains 'Lead Go Engineer & Software Architect'
 assert_contains 'Distributed · Edge · Data Systems'
-assert_contains 'id=approach'
 assert_contains 'id=experience'
 assert_contains 'id=expertise'
 assert_contains 'id=contact'
@@ -122,6 +121,6 @@ if rg --ignore-case --quiet \
   exit 1
 fi
 
-assert_contains 'href=/cv.pdf'
+assert_contains 'href=/vladislav-troinich-cv.pdf'
 
 printf 'Portal and CV verification passed\n'

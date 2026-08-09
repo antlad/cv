@@ -44,7 +44,7 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       # Non-fatal on purpose: a Chrome failure must not block the site deploy.
-      # If this step fails the site still ships, without a refreshed cv.pdf.
+      # If this step fails the site still ships, without a refreshed PDF.
       - name: Set up Chrome
         id: setup-chrome
         continue-on-error: true
@@ -75,10 +75,10 @@ jobs:
             --no-sandbox \
             --no-pdf-header-footer \
             --virtual-time-budget=10000 \
-            --print-to-pdf=./public/cv.pdf \
+            --print-to-pdf=./public/vladislav-troinich-cv.pdf \
             http://127.0.0.1:8741/cv.html
 
-          test -s ./public/cv.pdf
+          test -s ./public/vladislav-troinich-cv.pdf
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -6,7 +6,8 @@ disableKinds = ["taxonomy", "term"]
 [markup.goldmark.renderer]
   unsafe = true
 
-# Renders layouts/index.cv.html to /cv.html, the print source for /cv.pdf.
+# Renders layouts/index.cv.html to /cv.html, the print source for
+# /vladislav-troinich-cv.pdf.
 # RSS must stay in the list: dropping it removes index.xml.
 [outputFormats.CV]
   mediaType = "text/html"

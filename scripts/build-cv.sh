@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
-# Builds the site and exports /cv.html to a PDF at public/cv.pdf.
+# Builds the site and exports /cv.html to public/vladislav-troinich-cv.pdf.
+# The filename is what lands on the recipient's disk, so it carries the name.
 #
 # The export runs against a local HTTP server rather than file://. Hugo emits
 # root-absolute fingerprinted asset paths, which file:// resolves against the
@@ -60,12 +61,12 @@ fi
   --no-sandbox \
   --no-pdf-header-footer \
   --virtual-time-budget=10000 \
-  --print-to-pdf="$out_dir/cv.pdf" \
+  --print-to-pdf="$out_dir/vladislav-troinich-cv.pdf" \
   "http://127.0.0.1:$port/cv.html" >/dev/null 2>&1
 
-if [[ ! -s "$out_dir/cv.pdf" ]]; then
+if [[ ! -s "$out_dir/vladislav-troinich-cv.pdf" ]]; then
   printf 'Chrome did not produce a PDF.\n' >&2
   exit 1
 fi
 
-printf 'Wrote %s (%s bytes)\n' "$out_dir/cv.pdf" "$(wc -c < "$out_dir/cv.pdf" | tr -d ' ')"
+printf 'Wrote %s (%s bytes)\n' "$out_dir/vladislav-troinich-cv.pdf" "$(wc -c < "$out_dir/vladislav-troinich-cv.pdf" | tr -d ' ')"
