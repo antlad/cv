@@ -4,7 +4,7 @@
 
 > {{ $h.hero.summary | plainify | chomp }}
 
-Based in {{ $p.location }}. Full CV (PDF): {{ "vladislav-troinich-cv.pdf" | absURL }}
+Full CV (PDF): {{ "vladislav-troinich-cv.pdf" | absURL }}
 
 ## Experience
 

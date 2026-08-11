@@ -89,6 +89,8 @@ expertise:
         - "Prometheus"
         - "OpenTelemetry"
         - "GitLab CI/CD"
+        - "Cloud Native"
+        - "AWS"
   agents:
     title: "Working with agents"
     description: >-

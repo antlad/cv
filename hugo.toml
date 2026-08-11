@@ -29,7 +29,6 @@ disableKinds = ["taxonomy", "term"]
   description = "Lead Go engineer and hands-on software architect specializing in distributed systems, industrial and edge data platforms, reliability, performance, and edge-to-cloud delivery."
   name = "Vladislav Troinich"
   role = "Lead Go Engineer & Software Architect"
-  location = "Tbilisi, Georgia"
   avatar = "/images/profile.png"
   social_image = "/images/profile.png"
 

@@ -85,7 +85,6 @@ fi
 assert_cv_contains 'vladislav@troinich.pro'
 assert_cv_contains 'linkedin.com/in/vladtr'
 assert_cv_contains 'github.com/antlad'
-assert_cv_contains 'Tbilisi, Georgia'
 
 # The minifier leaves a bare & here, unlike the portal page which keeps &amp;.
 assert_cv_contains 'Lead Go Engineer & Software Architect'

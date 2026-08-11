@@ -18,7 +18,6 @@
   {{/* Rendered as anchors so the links stay clickable inside the PDF, with
        display text kept short — the raw Upwork profile URL is unreadable. */}}
   <ul class="cv-contacts">
-    <li>{{ $p.location }}</li>
     {{- range $p.contacts }}
     <li><a href="{{ .url }}">
       {{- if eq .icon "email" -}}

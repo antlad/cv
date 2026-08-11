@@ -50,7 +50,7 @@ patching turns a viewport-scaled landing page into a CV.
 
 | CV section | Source |
 |---|---|
-| Header — name, title, location | `hugo.toml` `[params]` |
+| Header — name, title | `hugo.toml` `[params]` |
 | Header — contact links | `hugo.toml` `[[params.contacts]]` |
 | Professional summary | `hero.summary` |
 | Experience | `experience.items` — role, company, period, description |
