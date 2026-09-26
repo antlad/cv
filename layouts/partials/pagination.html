@@ -1,0 +1,23 @@
+{{ if gt .TotalPages 1 }}
+  <nav class="pagination" aria-label="Posts archive pages">
+    {{ with .Prev }}
+      <a class="pagination-direction" href="{{ .URL }}" rel="prev">Newer</a>
+    {{ else }}
+      <span class="pagination-direction is-disabled" aria-hidden="true">Newer</span>
+    {{ end }}
+    <div class="pagination-pages">
+      {{ range .Pagers }}
+        {{ if eq .PageNumber $.PageNumber }}
+          <a href="{{ .URL }}" aria-current="page">{{ .PageNumber }}</a>
+        {{ else }}
+          <a href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ with .Next }}
+      <a class="pagination-direction" href="{{ .URL }}" rel="next">Older</a>
+    {{ else }}
+      <span class="pagination-direction is-disabled" aria-hidden="true">Older</span>
+    {{ end }}
+  </nav>
+{{ end }}

@@ -3,16 +3,56 @@
 set -euo pipefail
 
 portal_out_dir="$(mktemp -d "${TMPDIR:-/tmp}/cv-portal.XXXXXX")"
-trap 'rm -rf "$portal_out_dir"' EXIT
+portal_prod_out_dir="$(mktemp -d "${TMPDIR:-/tmp}/cv-portal-prod.XXXXXX")"
+portal_pagination_out_dir="$(mktemp -d "${TMPDIR:-/tmp}/cv-portal-pages.XXXXXX")"
+portal_pagination_content_dir="$(mktemp -d "${TMPDIR:-/tmp}/cv-portal-content.XXXXXX")"
+trap 'rm -rf "$portal_out_dir" "$portal_prod_out_dir" "$portal_pagination_out_dir" "$portal_pagination_content_dir"' EXIT
 
 hugo \
+  --buildDrafts \
   --gc \
   --minify \
   --cacheDir "${TMPDIR:-/tmp}/cv-hugo-cache" \
   --destination "$portal_out_dir" >/dev/null
 
+hugo \
+  --gc \
+  --minify \
+  --cacheDir "${TMPDIR:-/tmp}/cv-hugo-cache" \
+  --destination "$portal_prod_out_dir" >/dev/null
+
+cp -R content/. "$portal_pagination_content_dir/"
+for post_number in $(seq -w 1 11); do
+  fixture_dir="$portal_pagination_content_dir/posts/pagination-fixture-$post_number"
+  mkdir -p "$fixture_dir"
+  if [[ "$post_number" == "01" ]]; then
+    printf -- '---\ntitle: "Pagination fixture %s"\ndate: 2026-08-%s\ndraft: true\n---\n\nFallback summary from article body.\n' \
+      "$post_number" "$post_number" >"$fixture_dir/index.md"
+  else
+    printf -- '---\ntitle: "Pagination fixture %s"\ndate: 2026-08-%s\ndescription: "Generated pagination fixture %s."\ndraft: true\n---\n\nFixture body.\n' \
+      "$post_number" "$post_number" "$post_number" >"$fixture_dir/index.md"
+  fi
+done
+
+hugo \
+  --buildDrafts \
+  --gc \
+  --minify \
+  --cacheDir "${TMPDIR:-/tmp}/cv-hugo-cache" \
+  --contentDir "$portal_pagination_content_dir" \
+  --destination "$portal_pagination_out_dir" >/dev/null
+
 portal_index="$portal_out_dir/index.html"
 portal_cv="$portal_out_dir/cv.html"
+portal_posts="$portal_out_dir/posts/index.html"
+portal_prod_posts="$portal_prod_out_dir/posts/index.html"
+portal_pagination_page_two="$portal_pagination_out_dir/posts/page/2/index.html"
+portal_article="$portal_out_dir/posts/self-hosted-llm-nats-rust/index.html"
+portal_posts_feed="$portal_out_dir/posts/index.xml"
+portal_prod_article="$portal_prod_out_dir/posts/self-hosted-llm-nats-rust/index.html"
+portal_prod_posts_feed="$portal_prod_out_dir/posts/index.xml"
+portal_old_writing="$portal_out_dir/writing/index.html"
+portal_stylesheet="$(find "$portal_out_dir/css" -maxdepth 1 -type f -name 'main.min.*.css' -print -quit)"
 
 assert_contains() {
   local expected="$1"
@@ -26,6 +66,32 @@ assert_cv_contains() {
   local expected="$1"
   if ! rg --quiet --fixed-strings "$expected" "$portal_cv"; then
     printf 'Missing required CV output: %s\n' "$expected" >&2
+    return 1
+  fi
+}
+
+assert_file_contains() {
+  local file="$1"
+  local expected="$2"
+  if [[ ! -f "$file" ]] || ! rg --quiet --fixed-strings "$expected" "$file"; then
+    printf 'Missing required output in %s: %s\n' "$file" "$expected" >&2
+    return 1
+  fi
+}
+
+assert_file_not_contains() {
+  local file="$1"
+  local unexpected="$2"
+  if [[ -f "$file" ]] && rg --quiet --fixed-strings "$unexpected" "$file"; then
+    printf 'Unexpected output in %s: %s\n' "$file" "$unexpected" >&2
+    return 1
+  fi
+}
+
+assert_file_absent() {
+  local file="$1"
+  if [[ -e "$file" ]]; then
+    printf 'Unexpected generated file: %s\n' "$file" >&2
     return 1
   fi
 }
@@ -122,4 +188,47 @@ fi
 
 assert_contains 'href=/vladislav-troinich-cv.pdf'
 
-printf 'Portal and CV verification passed\n'
+assert_file_contains "$portal_posts" 'Posts'
+assert_file_contains "$portal_posts" '/posts/self-hosted-llm-nats-rust/'
+assert_file_contains "$portal_posts" 'What can an offline LLM running on a single DGX Spark actually do?'
+assert_file_contains "$portal_prod_posts" 'Posts are on the way'
+assert_file_not_contains "$portal_prod_posts" '/posts/self-hosted-llm-nats-rust/'
+assert_file_contains "$portal_pagination_page_two" 'href=/posts/'
+assert_file_contains "$portal_article" 'What can an offline LLM running on a single DGX Spark actually do?'
+assert_file_contains "$portal_article" 'I wanted to test it with something bigger than a toy project.'
+assert_file_contains "$portal_article" 'Intro'
+assert_file_contains "$portal_article" 'class=highlight'
+assert_file_contains "$portal_article" 'optimisation_2.png'
+assert_file_contains "$portal_article" 'href=/posts/'
+assert_file_contains "$portal_article" 'href=/'
+assert_file_contains "$portal_article" '<title>What can an offline LLM running on a single DGX Spark actually do? — Vladislav Troinich</title>'
+assert_file_contains "$portal_article" 'property="og:type" content="article"'
+assert_file_contains "$portal_article" 'href=https://troinich.pro/posts/self-hosted-llm-nats-rust/'
+assert_file_contains "$portal_article" 'datePublished'
+assert_file_contains "$portal_article" '"@type":"Article"'
+assert_contains '"@type":"Person"'
+assert_contains 'href=/posts/'
+assert_file_contains "$portal_posts_feed" 'What can an offline LLM running on a single DGX Spark actually do?'
+assert_file_absent "$portal_prod_article"
+assert_file_not_contains "$portal_prod_posts_feed" 'What can an offline LLM running on a single DGX Spark actually do?'
+assert_file_absent "$portal_old_writing"
+
+if ! rg --quiet --fixed-strings 'Fallback summary from article body.' \
+  "$portal_pagination_out_dir/posts/index.html" \
+  "$portal_pagination_page_two"; then
+  printf 'Generated article summary did not reach either posts archive page.\n' >&2
+  exit 1
+fi
+
+if ! hugo config | rg --quiet '^pagersize = 10$|^  pagersize = 10$'; then
+  printf 'Hugo pagination is not configured for ten articles per page.\n' >&2
+  exit 1
+fi
+
+assert_file_contains "$portal_stylesheet" '.posts-archive'
+assert_file_contains "$portal_stylesheet" '.article-body'
+assert_file_contains "$portal_stylesheet" '.pagination'
+assert_file_contains "$portal_stylesheet" 'max-width:70ch'
+assert_file_contains "$portal_stylesheet" '.article-body pre{overflow-x:auto'
+
+printf 'Portal, CV, and posts verification passed\n'

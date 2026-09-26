@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="page-shell header-inner">
-    <a class="brand" href="#top" aria-label="{{ .Site.Params.name }} — home">
+    <a class="brand" href="/" aria-label="{{ .Site.Params.name }} — home">
       <span class="brand-mark" aria-hidden="true">VT</span>
       <span class="brand-copy">
         <strong>{{ .Site.Params.name }}</strong>
@@ -8,7 +8,8 @@
       </span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#experience">Experience</a>
+      <a href="/#experience">Experience</a>
+      <a href="/posts/"{{ if eq .Section "posts" }} aria-current="page"{{ end }}>Posts</a>
       <a class="nav-cta" href="mailto:vladislav@troinich.pro">Contact</a>
     </nav>
   </div>

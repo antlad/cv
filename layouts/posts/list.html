@@ -1,0 +1,36 @@
+{{ define "main" }}
+  <section class="posts-archive">
+    <div class="page-shell posts-shell">
+      <header class="posts-archive-header">
+        <p class="eyebrow">Field notes</p>
+        <h1>{{ .Title }}</h1>
+        {{ with .Content }}
+          <div class="posts-intro">{{ . }}</div>
+        {{ end }}
+      </header>
+
+      {{ $paginator := .Paginate (.RegularPages.ByDate.Reverse) }}
+      {{ if gt (len $paginator.Pages) 0 }}
+        <div class="posts-list">
+          {{ range $paginator.Pages }}
+            <article class="post-entry">
+              {{ partial "article-meta.html" . }}
+              <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+              {{ $summary := .Description }}
+              {{ if not $summary }}{{ $summary = .Summary | plainify }}{{ end }}
+              <p>{{ $summary }}</p>
+              <a class="post-read-more" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">Read post <span aria-hidden="true">→</span></a>
+            </article>
+          {{ end }}
+        </div>
+        {{ partial "pagination.html" $paginator }}
+      {{ else }}
+        <div class="posts-empty">
+          <p class="mini-label">Archive</p>
+          <h2>Posts are on the way</h2>
+          <p>The first field notes are being prepared. Check back soon.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -6,6 +6,9 @@ disableKinds = ["taxonomy", "term"]
 [markup.goldmark.renderer]
   unsafe = true
 
+[pagination]
+  pagerSize = 10
+
 # Renders layouts/index.cv.html to /cv.html, the print source for
 # /vladislav-troinich-cv.pdf.
 # RSS must stay in the list: dropping it removes index.xml.

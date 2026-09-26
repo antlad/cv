@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <section class="article-page">
+    <div class="page-shell article-shell">
+      <a class="article-back" href="/posts/"><span aria-hidden="true">←</span> All posts</a>
+      <article>
+        <header class="article-header">
+          <p class="eyebrow">Field note</p>
+          <h1>{{ .Title }}</h1>
+          {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+          {{ partial "article-meta.html" . }}
+        </header>
+        <div class="article-body">
+          {{ .Content }}
+        </div>
+      </article>
+    </div>
+  </section>
+{{ end }}
