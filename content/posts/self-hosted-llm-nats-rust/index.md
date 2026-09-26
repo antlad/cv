@@ -2,7 +2,7 @@
 title: "What can an offline LLM running on a single DGX Spark actually do?"
 date: 2026-09-25
 description: "I wanted to test it with something bigger than a toy project. So I ran NVIDIA Qwen3.8-Flash-Next-NVFP4 locally through vLLM, connected it to Codex, and asked it to reimplement the core connectivity part of the NATS server in Rust."
-draft: true
+draft: false
 ---
 
 # What Can an Offline LLM Do on a Single DGX Spark? Rewriting NATS Core in Rust with NVIDIA Qwen3.8-Flash-Next-NVFP4
