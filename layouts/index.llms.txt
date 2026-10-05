@@ -6,29 +6,41 @@
 
 Full CV (PDF): {{ "vladislav-troinich-cv.pdf" | absURL }}
 
-## Experience
+## {{ $h.experience.title }}
 
 {{ range $h.experience.items -}}
-- **{{ .role }}, {{ .company }}** ({{ .period }}) — {{ .description | plainify | chomp }}
+### {{ .role }}, {{ .company }} ({{ .period }})
+
+{{ .description | plainify | chomp }}
+
+{{ range .details }}{{ . | plainify | chomp }}
+
+{{ end }}
 {{ end }}
 ## Expertise
 
 {{ range $h.expertise.groups -}}
 - **{{ .name }}:** {{ delimit .items ", " }}
 {{ end }}
-## Working with agents
-
-{{ $h.expertise.agents.description | plainify | chomp }}
-
-## Independent R&D
+## {{ $h.expertise.research.title }}
 
 {{ $h.expertise.research.description | plainify | chomp }}
+
+{{ with $h.expertise.research.article }}[{{ .title }}]({{ .url | absURL }}){{ end }}
+
+## {{ $h.expertise.agents.title }}
+
+{{ $h.expertise.agents.description | plainify | chomp }}
 
 ## Education
 
 {{ range $h.expertise.education.items -}}
 - {{ . }}
 {{ end }}
+## Availability
+
+{{ $h.contact.description | plainify | chomp }}
+
 ## Links
 
 {{ range $p.contacts -}}

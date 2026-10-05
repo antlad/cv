@@ -6,11 +6,11 @@
       <h1 id="hero-title">{{ $hero.title }}</h1>
       <p class="hero-summary">{{ $hero.summary }}</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="mailto:vladislav@troinich.pro">Discuss an engineering challenge</a>
+        <a class="button button-primary" href="/vladislav-troinich-cv.pdf" download>Download CV (PDF)</a>
         <a class="text-link" href="#experience">Explore experience <span aria-hidden="true">↓</span></a>
       </div>
       {{ with $hero.signals }}
-        <ul class="hero-signals" aria-label="Working principles">
+        <ul class="hero-signals" aria-label="Remote work availability">
           {{ range . }}
             <li>{{ . }}</li>
           {{ end }}

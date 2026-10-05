@@ -1,0 +1,183 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+# Standalone CV source. Portal copy is maintained separately in data/home.yaml.
+cv:
+  name: Vladislav Troinich
+  headline: Staff / Lead Software Engineer — Distributed Systems & Data Platforms
+  location: Remote · Worldwide B2B · UTC+4 · Up to 6h US/EU overlap
+  email: vladislav@troinich.pro
+  website: https://troinich.pro/
+  social_networks:
+    - network: LinkedIn
+      username: vladtr
+    - network: GitHub
+      username: antlad
+  sections:
+    profile:
+      - >-
+        Software engineer with 18+ years of experience, a background in C++
+        systems, and a current focus on Go data platforms. At Litmus, I lead
+        technical work on industrial data collection, storage, messaging, and
+        APIs. My work combines architecture and design review with
+        implementation, migrations, and performance analysis.
+    experience:
+      - company: Litmus Automation
+        position: Lead Software Engineer
+        start_date: 2020-10
+        end_date: present
+        summary: Industrial edge and data processing platform.
+        highlights:
+          - >-
+            Provide technical direction across about nine engineers, including
+            two technical leads. Review API and data-model changes, plan
+            migrations, and implement changes spanning collection, storage,
+            and delivery.
+          - >-
+            Replaced centralized cloud and enterprise data delivery with
+            connectors that process messages independently and maintain their
+            own persistent buffers. Preserved compatibility with existing
+            deployments during migration.
+          - >-
+            Rebuilt connector persistence as a Go disk-backed FIFO/LIFO library
+            using append-oriented files and recovery metadata. Simplified the
+            implementation and improved recovery after outages.
+          - >-
+            Added clustering to an MQTT broker and later redesigned distributed
+            message delivery while preserving MQTT semantics.
+          - >-
+            Designed embedded KV schemas and migration handling, including the
+            transition from BoltDB to BadgerDB. Defined internal gRPC APIs and
+            introduced GraphQL for external APIs.
+          - >-
+            Investigate CPU, memory, startup-time, and throughput problems
+            using profiling and load testing across connectors, analytics,
+            OPC UA, and device polling.
+          - >-
+            Standardized Data-team Go services around Uber Fx and shared
+            libraries. Introduced container-based integration testing in CI,
+            later adopting Testcontainers.
+          - >-
+            Built tools for code review and issue monitoring, and an
+            experimental ticket-to-MR agent scoped to one repository.
+            Review generated changes before approval.
+      - company: Litmus Automation
+        position: Senior Software Engineer
+        start_date: 2017-11
+        end_date: 2020-10
+        highlights:
+          - >-
+            Stabilized the Python device-collection stack, then designed the
+            Go controller and Go/C++ worker architecture in 2018. The
+            controller → worker → driver model remains in use across 250+
+            industrial drivers.
+          - >-
+            Designed analytics and data-pipeline components that remain in use
+            without major architectural redesign. Built Go, C++, and Python
+            services for device-data publishing, time-series storage
+            integration, and cloud delivery.
+      - company: Sberbank Technology
+        position: Senior Software Engineer
+        start_date: 2015-08
+        end_date: 2017-11
+        summary: Internal financial risk calculation platform.
+        highlights:
+          - >-
+            Replaced Jenkins-based job execution with a Python/Tornado backend
+            for orchestration, authentication, and API access. Used
+            MongoDB/GridFS for file handling.
+          - >-
+            Migrated the C++ calculation engine from Windows to Linux,
+            reworking platform-dependent and parallel-processing code to
+            integrate with the department's Linux infrastructure.
+          - >-
+            Developed product features and calculation methods with financial
+            domain specialists, using C++, Eigen, Boost, and QuantLib.
+      - company: NIPK Electron
+        position: Software Developer
+        start_date: 2012-03
+        end_date: 2015-08
+        summary: Distributed PACS / medical imaging platform deployed in hospitals.
+        highlights:
+          - >-
+            Contributed to C++/Qt services for DICOM/HL7, replicated image
+            storage, authentication, and node coordination in a multi-node
+            medical archive.
+          - >-
+            Built testing, administration, and deployment tools for Linux and
+            Windows using C++ and Python; worked with PostgreSQL and LMDB.
+      - company: Bank Otkritie
+        position: Junior Software Engineer → Software Engineer
+        start_date: 2008-08
+        end_date: 2012-03
+        highlights:
+          - >-
+            Developed banking applications, client messaging systems, and
+            internal tools using C++ and SQL.
+    technical_skills:
+      - label: Languages
+        details: Go (Golang), C++, Python, SQL
+      - label: Distributed systems
+        details: Concurrency, data pipelines, persistent buffering and recovery, backward-compatible storage and API migrations
+      - label: APIs & messaging
+        details: gRPC, REST, GraphQL, MQTT, NATS, Kafka
+      - label: Data & storage
+        details: PostgreSQL (pgx, sqlc), TimescaleDB, InfluxDB, Redis, BoltDB, BadgerDB, LMDB, MongoDB/GridFS
+      - label: Observability
+        details: OpenTelemetry, Prometheus, Grafana, Jaeger, VictoriaMetrics
+      - label: Infrastructure & testing
+        details: Linux, Docker, Kubernetes, AWS, GitLab CI/CD, Testcontainers, integration testing
+    education:
+      - institution: St. Petersburg State University of Aerospace Instrumentation
+        area: Information Systems
+        degree: Master's
+        start_date: 2009
+        end_date: 2011
+      - institution: St. Petersburg State University of Aerospace Instrumentation
+        area: Information Systems
+        degree: Bachelor's
+        start_date: 2005
+        end_date: 2009
+
+design:
+  theme: classic
+  page:
+    size: a4
+    top_margin: 1.5cm
+    bottom_margin: 1.5cm
+    left_margin: 1.5cm
+    right_margin: 1.5cm
+    show_top_note: false
+  colors:
+    name: '#165b57'
+    headline: '#165b57'
+    connections: '#165b57'
+    section_titles: '#165b57'
+    links: '#165b57'
+  typography:
+    alignment: left
+    font_size:
+      body: 10pt
+      name: 26pt
+      headline: 10pt
+      connections: 9pt
+  header:
+    space_below_name: 0.25cm
+    space_below_headline: 0.25cm
+    space_below_connections: 0.35cm
+    connections:
+      show_icons: false
+  entries:
+    allow_page_break: true
+    date_and_location_width: 3cm
+  sections:
+    space_between_regular_entries: 1em
+locale:
+  language: english
+settings:
+  current_date: today
+  render_command:
+    output_folder: rendercv_output
+    pdf_path: OUTPUT_FOLDER/vladislav-troinich-cv.pdf
+    dont_generate_png: true
+    dont_generate_html: true
+    dont_generate_markdown: true
+  pdf_title: Vladislav Troinich — CV

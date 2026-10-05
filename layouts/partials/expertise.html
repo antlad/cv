@@ -2,7 +2,7 @@
 <section class="section section-light" id="expertise" aria-labelledby="expertise-title">
   <div class="page-shell">
     <div class="section-heading">
-      <p class="section-number">01 / Expertise</p>
+      <p class="section-number">02 / Expertise</p>
       <div>
         <h2 id="expertise-title">{{ $section.title }}</h2>
         {{ with $section.intro }}<p>{{ . }}</p>{{ end }}
@@ -18,23 +18,17 @@
         </div>
       {{ end }}
     </div>
-    {{ with $section.agents }}
-      <div class="agents-block">
-        <div class="agents-block-head">
-          <p class="mini-label">ai practice</p>
-          <h3>{{ .title }}</h3>
-        </div>
-        <p>{{ .description }}</p>
-      </div>
-    {{ end }}
-    <div class="research-education-grid">
-      <article class="research-card">
-        <p class="mini-label">Applied R&amp;D</p>
+    <div class="profile-details-grid">
+      <article class="practice-card">
         <h3>{{ $section.research.title }}</h3>
         <p>{{ $section.research.description }}</p>
+        {{ with $section.research.article }}
+          <a class="practice-link" href="{{ .url | relURL }}">{{ .title }} <span aria-hidden="true">↗</span></a>
+        {{ end }}
+        <h3>{{ $section.agents.title }}</h3>
+        <p>{{ $section.agents.description }}</p>
       </article>
       <aside class="education-card" aria-labelledby="education-title">
-        <p class="mini-label">Foundation</p>
         <h3 id="education-title">{{ $section.education.title }}</h3>
         <ul>
           {{ range $section.education.items }}<li>{{ . }}</li>{{ end }}

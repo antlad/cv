@@ -1,109 +1,138 @@
 hero:
-  eyebrow: "Distributed · Edge · Data Systems"
-  title: "Lead Go Engineer & Software Architect"
+  eyebrow: "Distributed systems · Data platforms · Go & C++"
+  title: "Staff / Lead Software Engineer"
   summary: >-
-    Building production software since 2008, I lead architecture and
-    implementation across industrial connectivity, data ingestion, processing,
-    storage, reliability, and cloud and enterprise delivery—turning difficult
-    production constraints into systems teams can operate and evolve.
+    Software engineer with 18+ years of experience, from C++ systems to Go
+    data platforms. My work spans distributed storage, messaging, and data
+    processing, combining architecture and technical leadership with
+    implementation and performance analysis.
+  signals:
+    - "Remote worldwide"
+    - "B2B preferred"
+    - "UTC+4 · US/EU overlap"
 
 experience:
   title: "Work experience"
   items:
     - role: "Lead Software Engineer"
       company: "Litmus Automation"
-      period: "2020 — present"
+      period: "Oct 2020 — present"
       label: "Industrial edge and data systems"
       description: >-
-        Lead technical work across industrial connectivity, collection and
-        normalization, analytics and storage, and reliable delivery to cloud
-        and enterprise systems. Define architecture, decompose cross-cutting
-        changes, review designs and code, and remain hands-on in critical Go services.
+        I lead technical work across a data engineering group of about nine engineers,
+        including two technical leads. My scope spans collection, processing,
+        storage, and delivery: reviewing architecture and data models,
+        defining internal gRPC and external GraphQL APIs, and implementing
+        changes across services.
+      details:
+        - >-
+          As the platform grew, I replaced centralized cloud delivery with
+          independent connectors and recoverable disk buffers, while preserving
+          compatibility with older deployments. Other work included MQTT
+          clustering and a redesign of distributed delivery, plus migrating
+          embedded storage from BoltDB to BadgerDB with schema and index changes.
+        - >-
+          Performance work spans CPU, memory, startup time, and throughput in
+          device polling, OPC UA, analytics, and connectors. To make changes
+          more consistent across the group, I standardized Go service structure
+          and shared libraries and introduced container-based integration
+          testing, later adopting Testcontainers.
     - role: "Senior Software Engineer"
       company: "Litmus Automation"
-      period: "2017 — 2020"
-      label: "Industrial edge and data systems"
+      period: "Nov 2017 — Oct 2020"
+      label: "Industrial connectivity and storage"
       description: >-
-        Built backend and edge services in Go, C++, and Python for an
-        industrial data platform, contributing to architecture, database
-        integrations, performance work, device-data processing, and upstream delivery.
+        Joined early in the platform's development and took the device-collection
+        stack from its original Python implementation to a Go controller with
+        Go/C++ workers. The controller → worker → driver architecture I designed
+        in 2018 remains the foundation for all 250+ industrial drivers.
+      details:
+        - >-
+          My work extended from collection into device-data publishing,
+          time-series storage integration, and analytics pipelines. The early
+          analytics design remains in use without major architectural redesign.
     - role: "Senior Software Engineer"
       company: "Sberbank Technology"
-      period: "2015 — 2017"
-      label: "Financial risk infrastructure"
+      period: "Aug 2015 — Nov 2017"
+      label: "Financial risk calculation"
       description: >-
-        Developed a distributed high-performance risk calculation system,
-        implemented core C++ computation modules, and helped modernize backend
-        architecture and Linux delivery.
+        Developed C++ financial calculation software with domain specialists
+        and reworked the surrounding service architecture. Replaced
+        Jenkins-based job execution with a Python/Tornado backend for
+        orchestration, authentication, and APIs, using MongoDB/GridFS for files.
+      details:
+        - >-
+          Migrated the calculation engine from Windows to Linux, reworking
+          platform-dependent and parallel-processing code to fit the
+          department's infrastructure.
     - role: "Software Developer"
       company: "NIPK Electron"
-      period: "2012 — 2015"
+      period: "Mar 2012 — Aug 2015"
       label: "Distributed medical imaging"
       description: >-
-        Built clustered PACS and DICOM services with high availability,
-        replication, distributed storage, cross-platform delivery, testing,
-        and deployment automation.
-    - role: "Software Engineer"
+        Contributed to a distributed C++/Qt medical-image archive deployed
+        with X-ray equipment in hospitals. Worked on DICOM/HL7 services,
+        replicated writes, node coordination, and authentication, alongside
+        administration, testing, and deployment tools for Linux and Windows.
+        This was the foundation of my experience with asynchronous services
+        and distributed storage.
+    - role: "Junior Software Engineer → Software Engineer"
       company: "Bank Otkritie"
-      period: "2008 — 2012"
-      label: "Engineering foundation"
+      period: "Aug 2008 — Mar 2012"
+      label: "Banking applications"
       description: >-
-        Developed banking applications, client messaging systems, and internal
-        tools while progressing from a part-time junior role to software engineer.
+        Started in part-time development and progressed to a software engineer
+        role, building C++/SQL banking applications, client messaging systems,
+        and internal tools.
 
 expertise:
-  title: "Technical depth"
+  title: "Technical expertise"
   groups:
     - name: "Languages"
+      items: ["Go", "C++", "Python"]
+    - name: "Distributed systems"
       items:
-        - "Go"
-        - "C++"
-        - "Python"
-    - name: "Engineering"
-      items:
-        - "Distributed systems"
-        - "Microservices"
-        - "Spec-first design"
-        - "TDD"
+        - "Distributed messaging and data pipelines"
+        - "Replication and coordination"
+        - "Fault tolerance and recovery"
+        - "Storage and API migrations"
     - name: "Data & storage"
       items:
         - "PostgreSQL"
-        - "Time-series (InfluxDB, VictoriaMetrics, TimescaleDB)"
-        - "Redis"
-        - "Embedded KV (BoltDB, BadgerDB, LMDB)"
-    - name: "Messaging & streaming"
+        - "TimescaleDB · InfluxDB"
+        - "Redis · MongoDB"
+        - "BoltDB · BadgerDB · LMDB"
+    - name: "APIs & messaging"
       items:
-        - "MQTT"
-        - "Kafka"
-        - "NATS"
-    - name: "APIs & protocols"
+        - "gRPC · REST · GraphQL"
+        - "MQTT · NATS · Kafka"
+    - name: "Observability"
       items:
-        - "gRPC"
-        - "REST"
-        - "GraphQL"
-    - name: "Infrastructure & delivery"
+        - "OpenTelemetry · Prometheus"
+        - "Grafana · Jaeger · VictoriaMetrics"
+    - name: "Infrastructure & testing"
       items:
-        - "Linux"
-        - "Docker"
-        - "Kubernetes"
-        - "Prometheus"
-        - "OpenTelemetry"
-        - "GitLab CI/CD"
-        - "Cloud Native"
-        - "AWS"
-  agents:
-    title: "Working with agents"
-    description: >-
-      Coding agents are part of my daily development. I write my own skills to
-      extend what they can do and to keep repeatable work fast and consistent.
+        - "Linux · Docker · Kubernetes"
+        - "AWS · GitLab CI/CD"
+        - "Integration testing · Testcontainers"
   research:
-    title: "Independent R&D"
+    title: "Independent AI projects"
     description: >-
-      Outside my core professional work, I am keenly interested in crypto and
-      financial systems. My side projects include designing and training
-      PyTorch models on large financial datasets, along with the surrounding
-      data-generation, experiment-management, and GPU-training pipelines. I
-      also run local LLM inference and experiment with private coding-agent workflows.
+      My independent AI work includes designing and training PyTorch models,
+      with pipelines for data preparation, experiment management, and GPU
+      training. I also run local LLM inference and experiment with private
+      coding-agent workflows.
+    article:
+      title: "Local LLM experiment: reimplementing NATS Core in Rust"
+      url: "/posts/self-hosted-llm-nats-rust/"
+  agents:
+    title: "Engineering automation"
+    description: >-
+      I build agent workflows around repository discovery and design before
+      implementation, using custom skills, policies, and MCP integrations.
+      My tools include automated code review, issue monitoring, and an
+      experimental ticket-to-MR agent scoped to one repository. Generated
+      changes go through my review, linters, and unit and integration tests.
   education:
     title: "Education"
     items:
@@ -111,8 +140,9 @@ expertise:
       - "Bachelor's degree in Information Systems · 2009"
 
 contact:
-  title: "Have a difficult backend or data-platform problem?"
+  title: "Roles and collaboration"
   description: >-
-    Send a short description of the system, current symptoms, constraints, and
-    desired outcome. I will start with the questions that reveal the highest-risk assumptions.
-  button: "Discuss an engineering challenge"
+    Open to fully remote Staff, Lead, and Senior roles in distributed systems
+    and data infrastructure. Worldwide B2B work is preferred, with around six
+    hours of overlap with US or EU teams.
+  button: "Discuss a role or project"

@@ -4,3 +4,5 @@ resources/_gen/
 skills.txt
 education.txt
 .claude
+.venv
+rendercv_output/

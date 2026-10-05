@@ -1,6 +1,6 @@
 baseURL = "https://troinich.pro/"
 languageCode = "en-us"
-title = "Vladislav Troinich — Lead Go Engineer & Software Architect"
+title = "Vladislav Troinich — Staff / Lead Software Engineer"
 disableKinds = ["taxonomy", "term"]
 
 [markup.goldmark.renderer]
@@ -8,14 +8,6 @@ disableKinds = ["taxonomy", "term"]
 
 [pagination]
   pagerSize = 10
-
-# Renders layouts/index.cv.html to /cv.html, the print source for
-# /vladislav-troinich-cv.pdf.
-# RSS must stay in the list: dropping it removes index.xml.
-[outputFormats.CV]
-  mediaType = "text/html"
-  baseName = "cv"
-  isHTML = true
 
 # Renders layouts/index.llms.txt to /llms.txt — a plain-markdown summary
 # for LLMs / AI answer engines (see llmstxt.org). Generated from data/home.yaml
@@ -26,12 +18,12 @@ disableKinds = ["taxonomy", "term"]
   isPlainText = true
 
 [outputs]
-  home = ["HTML", "RSS", "CV", "LLMS"]
+  home = ["HTML", "RSS", "LLMS"]
 
 [params]
-  description = "Lead Go engineer and hands-on software architect specializing in distributed systems, industrial and edge data platforms, reliability, performance, and edge-to-cloud delivery."
+  description = "Staff / Lead software engineer building distributed systems and data platforms in Go and C++. 18+ years in software engineering. Remote worldwide; B2B preferred."
   name = "Vladislav Troinich"
-  role = "Lead Go Engineer & Software Architect"
+  role = "Staff / Lead Software Engineer"
   avatar = "/images/profile.png"
   social_image = "/images/profile.png"
 
