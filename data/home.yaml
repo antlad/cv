@@ -12,29 +12,109 @@ hero:
     - "UTC+4 · US/EU overlap"
 
 experience:
-  # Bullet text is read from matching experience highlights in Vladislav_Troinich_CV.yaml.
   title: "Work experience"
   items:
     - role: "Lead Software Engineer"
       company: "Litmus Automation"
       period: "Oct 2020 — present"
       label: "Industrial edge and data systems"
+      description: >-
+        Established AI-assisted code review in GitLab with project-specific
+        policies, linters, CI tests, and performance and security gates.
+        Required checks block significant issues before my final review.
+        The process has helped improve code quality and reduce bugs.
+      details:
+        - >-
+          Use Claude daily for AI-assisted planning, implementation,
+          debugging, and testing, with custom skills, policies, and MCP
+          integrations.
+        - >-
+          Lead technical work for a data engineering group of up to 10 engineers,
+          including two technical leads. Review architecture and data models,
+          design internal gRPC and external GraphQL APIs, and implement changes
+          across collection, processing, storage, and delivery services.
+          Conduct technical and system-design
+          interviews for software engineers and give hiring recommendations.
+        - >-
+          Designed and built independent cloud
+          connectors with disk buffers that recover after outages, replacing
+          centralized delivery while keeping older deployments compatible.
+          Implemented MQTT clustering, redesigned and implemented
+          distributed message delivery, and migrated embedded storage from
+          BoltDB to BadgerDB with schema and index changes.
+        - >-
+          Investigate CPU, memory, startup-time, and throughput problems in
+          device polling, OPC UA, analytics, and connectors. Standardized Go
+          service structure and shared libraries across the group and
+          introduced container-based integration testing, later adopting
+          Testcontainers.
+        - >-
+          Lead the response to urgent technical problems, deciding when to
+          patch a system and when to replace its implementation based on risk,
+          deadlines, and team capacity. Implement or delegate fixes and
+          validate them with integration tests before release.
     - role: "Senior Software Engineer"
       company: "Litmus Automation"
       period: "Nov 2017 — Oct 2020"
       label: "Industrial connectivity and storage"
+      description: >-
+        Joined early in the platform's development and designed and built
+        the Go controller and Go/C++ workers to replace the Python
+        device-collection stack. Implemented the first Modbus, OPC UA, and
+        BACnet drivers to validate the design before other developers extended
+        the framework. This controller → worker → driver architecture, built
+        in 2018, remains the foundation for all 250+ industrial drivers.
+      details:
+        - >-
+          Designed and built the OPC UA server using a Go controller and
+          C++ workers to use established OPC UA libraries. Continued reviewing
+          architecture and API changes after handing over the driver component.
+        - >-
+          Designed and implemented time-series ingestion for industrial device data.
+          It supported both the original Python controller and the new Go
+          controller during migration. Tuned InfluxDB indexes and queries
+          to keep memory use within edge-device limits. The component started
+          with internal InfluxDB storage and later added external databases,
+          including different InfluxDB versions and TimescaleDB.
+        - >-
+          Built external access through a NATS reverse proxy with TLS,
+          custom authentication, and configurable topics.
+          Customers could connect with standard NATS clients, avoiding the
+          performance cost and custom client code required by the gRPC option.
+          Designed and built device-data publishing and analytics
+          components; the early analytics design remains in use without major
+          architectural changes.
     - role: "Senior Software Engineer"
       company: "Sberbank Technology"
       period: "Aug 2015 — Nov 2017"
       label: "Financial risk calculation"
+      description: >-
+        Developed C++ financial calculation software with domain specialists
+        and reworked the surrounding service architecture. Replaced
+        Jenkins-based job execution with a Python/Tornado backend for
+        orchestration, authentication, and APIs, using MongoDB/GridFS for files.
+      details:
+        - >-
+          Migrated the calculation engine from Windows to Linux, reworking
+          platform-dependent and parallel-processing code to fit the
+          department's infrastructure.
     - role: "Software Developer"
       company: "NIPK Electron"
       period: "Mar 2012 — Aug 2015"
       label: "Distributed medical imaging"
+      description: >-
+        Contributed to a distributed C++/Qt medical-image archive deployed
+        with X-ray equipment in hospitals. Worked on DICOM/HL7 services,
+        replicated writes, node coordination, and authentication, alongside
+        administration, testing, and deployment tools for Linux and Windows.
     - role: "Junior Software Engineer → Software Engineer"
       company: "Bank Otkritie"
       period: "Aug 2008 — Mar 2012"
       label: "Banking applications"
+      description: >-
+        Started in part-time development and progressed to a software engineer
+        role, building C++/SQL banking applications, client messaging systems,
+        and internal tools.
 
 expertise:
   title: "Technical expertise"
@@ -79,11 +159,10 @@ expertise:
   agents:
     title: "AI-assisted development and automation"
     description: >-
-      I use Claude daily for AI-assisted planning, implementation, debugging,
-      and testing, with custom skills, policies, and MCP integrations.
-      I also built issue monitoring tools and an experimental agent that
-      turns tickets into merge requests for one repository. Generated changes
-      go through code review and automated tests before approval.
+      Built issue monitoring tools and an experimental AI agent that turns
+      tickets into merge requests for one repository. Generated changes go
+      through code review, linters, and unit and integration tests before
+      approval.
   education:
     title: "Education"
     items:

@@ -646,22 +646,8 @@ svg {
   margin: 0;
 }
 
-.experience-highlights {
-  margin: 0;
-  padding-left: 1.2rem;
-  list-style: disc;
-}
-
-.experience-highlights li {
-  padding-left: 0.25rem;
-}
-
-.experience-highlights li + li {
-  margin-top: 0.8rem;
-}
-
-.experience-highlights li::marker {
-  color: var(--accent-dark);
+.experience-detail p + p {
+  margin-top: 0.9rem;
 }
 
 .expertise-grid {

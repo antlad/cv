@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
-# Standalone CV source; experience highlights also supply the portal's bullets.
+# Standalone CV source. Portal wording is maintained separately in data/home.yaml.
 cv:
   name: Vladislav Troinich
   headline: Staff / Lead Software Engineer — Distributed Systems & Data Platforms
@@ -25,6 +25,17 @@ cv:
         end_date: present
         summary: Industrial edge and data processing platform.
         highlights:
+          - >-
+            Established AI-assisted code review in GitLab with project-specific
+            policies, linters, CI tests, and performance and security gates.
+            Required checks block merges with significant issues; I review
+            changes before final approval. This helped improve code quality
+            and reduce bugs.
+          - >-
+            Use Claude daily for AI-assisted development, with custom skills
+            for planning, implementation, debugging, and testing. Built issue
+            monitoring tools and an experimental agent that turns tickets
+            into merge requests for one repository.
           - >-
             Lead technical work for a data engineering group of up to 10
             engineers, including two technical leads. Review API and data-model changes, plan
@@ -59,17 +70,6 @@ cv:
             Standardized Data-team Go services around Uber Fx and shared
             libraries. Introduced container-based integration testing in CI,
             later adopting Testcontainers.
-          - >-
-            Established AI-assisted code review in GitLab with project-specific
-            policies, linters, CI tests, and performance and security gates.
-            Required checks block merges with significant issues; I review
-            changes before final approval. This helped improve code quality
-            and reduce bugs.
-          - >-
-            Use Claude daily for AI-assisted development, with custom skills
-            for planning, implementation, debugging, and testing. Built issue
-            monitoring tools and an experimental agent that turns tickets
-            into merge requests for one repository.
       - company: Litmus Automation
         position: Senior Software Engineer
         start_date: 2017-11

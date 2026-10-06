@@ -21,11 +21,8 @@
               <p class="experience-company">{{ .company }}</p>
             </div>
             <div class="experience-detail">
-              {{ with partial "experience-highlights.html" . }}
-                <ul class="experience-highlights">
-                  {{ range . }}<li>{{ . }}</li>{{ end }}
-                </ul>
-              {{ end }}
+              <p>{{ .description }}</p>
+              {{ range .details }}<p>{{ . }}</p>{{ end }}
             </div>
           </div>
         </article>
