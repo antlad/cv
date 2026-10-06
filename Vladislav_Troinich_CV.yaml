@@ -14,11 +14,10 @@ cv:
   sections:
     profile:
       - >-
-        Software engineer with 18+ years of experience, a background in C++
-        systems, and a current focus on Go data platforms. At Litmus, I lead
-        technical work on industrial data collection, storage, messaging, and
-        APIs. My work combines architecture and design review with
-        implementation, migrations, and performance analysis.
+        Software engineer with 18+ years of experience, from C++ systems to Go
+        data platforms. My work spans distributed storage, messaging, and data
+        processing, combining architecture and technical leadership with
+        implementation and performance analysis.
     experience:
       - company: Litmus Automation
         position: Lead Software Engineer
@@ -32,21 +31,20 @@ cv:
             migrations, and implement changes spanning collection, storage,
             and delivery.
           - >-
-            Replaced centralized cloud and enterprise data delivery with
-            connectors that process messages independently and maintain their
-            own persistent buffers. Preserved compatibility with existing
-            deployments during migration.
+            Designed and built independent cloud and enterprise connectors
+            with their own persistent buffers, replacing centralized data
+            delivery. Kept existing deployments compatible during migration.
           - >-
             Rebuilt connector persistence as a Go disk-backed FIFO/LIFO library
             using append-oriented files and recovery metadata. Simplified the
             implementation and improved recovery after outages.
           - >-
-            Added clustering to an MQTT broker and later redesigned distributed
-            message delivery while preserving MQTT semantics.
+            Implemented MQTT broker clustering, then redesigned and implemented
+            distributed message delivery while preserving MQTT semantics.
           - >-
-            Designed embedded KV schemas and migration handling, including the
-            transition from BoltDB to BadgerDB. Defined internal gRPC APIs and
-            introduced GraphQL for external APIs.
+            Designed embedded KV schemas and implemented storage migrations,
+            including the move from BoltDB to BadgerDB. Designed and implemented
+            internal gRPC and external GraphQL APIs.
           - >-
             Investigate CPU, memory, startup-time, and throughput problems
             using profiling and load testing across connectors, analytics,
@@ -65,15 +63,29 @@ cv:
         end_date: 2020-10
         highlights:
           - >-
-            Stabilized the Python device-collection stack, then designed the
-            Go controller and Go/C++ worker architecture in 2018. The
-            controller → worker → driver model remains in use across 250+
-            industrial drivers.
+            Stabilized the Python device-collection stack, then designed and
+            built the Go controller and Go/C++ workers in 2018. Implemented
+            the first Modbus, OPC UA, and BACnet drivers to validate the
+            framework before other developers extended it. The architecture
+            now supports all 250+ industrial drivers.
           - >-
-            Designed analytics and data-pipeline components that remain in use
-            without major architectural redesign. Built Go, C++, and Python
-            services for device-data publishing, time-series storage
-            integration, and cloud delivery.
+            Designed and built the OPC UA server using a Go controller and
+            C++ workers to use established C++ OPC UA libraries.
+          - >-
+            Designed and built time-series ingestion for device data, supporting
+            both Python and Go controllers during migration. Tuned InfluxDB
+            indexes and queries to keep memory use within edge-device limits.
+            The component later grew to support external InfluxDB versions
+            and TimescaleDB.
+          - >-
+            Designed and built external access through a NATS reverse proxy
+            with TLS, custom authentication, and UI-managed users and topic
+            settings. Enabled standard NATS clients to connect without the
+            performance cost and custom client code required by the gRPC option.
+          - >-
+            Designed and built device-data publishing and analytics components
+            in Go, C++, and Python. The early analytics design remains in use
+            without major architectural changes.
       - company: Sberbank Technology
         position: Senior Software Engineer
         start_date: 2015-08
@@ -165,11 +177,21 @@ design:
     space_below_connections: 0.35cm
     connections:
       show_icons: false
+      display_urls_instead_of_usernames: true
   entries:
     allow_page_break: true
     date_and_location_width: 3cm
   sections:
     space_between_regular_entries: 1em
+  templates:
+    education_entry:
+      # Full degree names do not fit the classic theme's narrow degree column.
+      degree_column: null
+      main_column: |-
+        **INSTITUTION**
+        DEGREE degree in AREA
+        SUMMARY
+        HIGHLIGHTS
 locale:
   language: english
 settings:

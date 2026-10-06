@@ -16,8 +16,10 @@
             <p class="experience-label">{{ .label }}</p>
           </div>
           <div class="experience-body">
-            <h3>{{ .role }}</h3>
-            <p class="experience-company">{{ .company }}</p>
+            <div class="experience-heading">
+              <h3>{{ .role }}</h3>
+              <p class="experience-company">{{ .company }}</p>
+            </div>
             <div class="experience-detail">
               <p>{{ .description }}</p>
               {{ range .details }}<p>{{ . }}</p>{{ end }}

@@ -26,11 +26,12 @@ experience:
         changes across services.
       details:
         - >-
-          As the platform grew, I replaced centralized cloud delivery with
-          independent connectors and recoverable disk buffers, while preserving
-          compatibility with older deployments. Other work included MQTT
-          clustering and a redesign of distributed delivery, plus migrating
-          embedded storage from BoltDB to BadgerDB with schema and index changes.
+          As the platform grew, I designed and built independent cloud
+          connectors with disk buffers that recover after outages, replacing
+          centralized delivery while keeping older deployments compatible.
+          I also implemented MQTT clustering, redesigned and implemented
+          distributed message delivery, and migrated embedded storage from
+          BoltDB to BadgerDB with schema and index changes.
         - >-
           Performance work spans CPU, memory, startup time, and throughput in
           device polling, OPC UA, analytics, and connectors. To make changes
@@ -42,15 +43,33 @@ experience:
       period: "Nov 2017 — Oct 2020"
       label: "Industrial connectivity and storage"
       description: >-
-        Joined early in the platform's development and took the device-collection
-        stack from its original Python implementation to a Go controller with
-        Go/C++ workers. The controller → worker → driver architecture I designed
-        in 2018 remains the foundation for all 250+ industrial drivers.
+        I joined early in the platform's development and designed and built
+        the Go controller and Go/C++ workers to replace the Python
+        device-collection stack. I implemented the first Modbus, OPC UA, and
+        BACnet drivers to validate the design before other developers extended
+        the framework. This controller → worker → driver architecture, built
+        in 2018, remains the foundation for all 250+ industrial drivers.
       details:
         - >-
-          My work extended from collection into device-data publishing,
-          time-series storage integration, and analytics pipelines. The early
-          analytics design remains in use without major architectural redesign.
+          Another engineer later took ownership of the driver component;
+          I continued reviewing architecture and API changes. I also designed
+          and built the OPC UA server using a Go controller and C++ workers,
+          combining Go service code with established C++ OPC UA libraries.
+        - >-
+          I designed and built time-series ingestion for industrial device data.
+          It supported both the original Python controller and the new Go
+          controller during migration. I tuned InfluxDB indexes and queries
+          to keep memory use within edge-device limits. The component started
+          with internal InfluxDB storage and later added external databases,
+          including different InfluxDB versions and TimescaleDB.
+        - >-
+          I built external access through a NATS reverse proxy with TLS,
+          custom authentication, and UI-managed users and topic settings.
+          Customers could connect with standard NATS clients, avoiding the
+          performance cost and custom client code required by the gRPC option.
+          I also designed and built device-data publishing and analytics
+          components; the early analytics design remains in use without major
+          architectural changes.
     - role: "Senior Software Engineer"
       company: "Sberbank Technology"
       period: "Aug 2015 — Nov 2017"
