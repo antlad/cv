@@ -2,6 +2,13 @@
 
 set -euo pipefail
 
+for dependency in hugo rg; do
+  if ! command -v "$dependency" >/dev/null 2>&1; then
+    printf 'Missing verification dependency: %s (requires Hugo and ripgrep).\n' "$dependency" >&2
+    exit 1
+  fi
+done
+
 portal_out_dir="$(mktemp -d "${TMPDIR:-/tmp}/cv-portal.XXXXXX")"
 portal_prod_out_dir="$(mktemp -d "${TMPDIR:-/tmp}/cv-portal-prod.XXXXXX")"
 portal_pagination_out_dir="$(mktemp -d "${TMPDIR:-/tmp}/cv-portal-pages.XXXXXX")"
