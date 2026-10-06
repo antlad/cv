@@ -12,97 +12,29 @@ hero:
     - "UTC+4 · US/EU overlap"
 
 experience:
+  # Bullet text is read from matching experience highlights in Vladislav_Troinich_CV.yaml.
   title: "Work experience"
   items:
     - role: "Lead Software Engineer"
       company: "Litmus Automation"
       period: "Oct 2020 — present"
       label: "Industrial edge and data systems"
-      description: >-
-        I lead technical work across a data engineering group of about nine engineers,
-        including two technical leads. My scope spans collection, processing,
-        storage, and delivery: reviewing architecture and data models,
-        defining internal gRPC and external GraphQL APIs, and implementing
-        changes across services.
-      details:
-        - >-
-          As the platform grew, I designed and built independent cloud
-          connectors with disk buffers that recover after outages, replacing
-          centralized delivery while keeping older deployments compatible.
-          I also implemented MQTT clustering, redesigned and implemented
-          distributed message delivery, and migrated embedded storage from
-          BoltDB to BadgerDB with schema and index changes.
-        - >-
-          Performance work spans CPU, memory, startup time, and throughput in
-          device polling, OPC UA, analytics, and connectors. To make changes
-          more consistent across the group, I standardized Go service structure
-          and shared libraries and introduced container-based integration
-          testing, later adopting Testcontainers.
     - role: "Senior Software Engineer"
       company: "Litmus Automation"
       period: "Nov 2017 — Oct 2020"
       label: "Industrial connectivity and storage"
-      description: >-
-        I joined early in the platform's development and designed and built
-        the Go controller and Go/C++ workers to replace the Python
-        device-collection stack. I implemented the first Modbus, OPC UA, and
-        BACnet drivers to validate the design before other developers extended
-        the framework. This controller → worker → driver architecture, built
-        in 2018, remains the foundation for all 250+ industrial drivers.
-      details:
-        - >-
-          Another engineer later took ownership of the driver component;
-          I continued reviewing architecture and API changes. I also designed
-          and built the OPC UA server using a Go controller and C++ workers,
-          combining Go service code with established C++ OPC UA libraries.
-        - >-
-          I designed and built time-series ingestion for industrial device data.
-          It supported both the original Python controller and the new Go
-          controller during migration. I tuned InfluxDB indexes and queries
-          to keep memory use within edge-device limits. The component started
-          with internal InfluxDB storage and later added external databases,
-          including different InfluxDB versions and TimescaleDB.
-        - >-
-          I built external access through a NATS reverse proxy with TLS,
-          custom authentication, and UI-managed users and topic settings.
-          Customers could connect with standard NATS clients, avoiding the
-          performance cost and custom client code required by the gRPC option.
-          I also designed and built device-data publishing and analytics
-          components; the early analytics design remains in use without major
-          architectural changes.
     - role: "Senior Software Engineer"
       company: "Sberbank Technology"
       period: "Aug 2015 — Nov 2017"
       label: "Financial risk calculation"
-      description: >-
-        Developed C++ financial calculation software with domain specialists
-        and reworked the surrounding service architecture. Replaced
-        Jenkins-based job execution with a Python/Tornado backend for
-        orchestration, authentication, and APIs, using MongoDB/GridFS for files.
-      details:
-        - >-
-          Migrated the calculation engine from Windows to Linux, reworking
-          platform-dependent and parallel-processing code to fit the
-          department's infrastructure.
     - role: "Software Developer"
       company: "NIPK Electron"
       period: "Mar 2012 — Aug 2015"
       label: "Distributed medical imaging"
-      description: >-
-        Contributed to a distributed C++/Qt medical-image archive deployed
-        with X-ray equipment in hospitals. Worked on DICOM/HL7 services,
-        replicated writes, node coordination, and authentication, alongside
-        administration, testing, and deployment tools for Linux and Windows.
-        This was the foundation of my experience with asynchronous services
-        and distributed storage.
     - role: "Junior Software Engineer → Software Engineer"
       company: "Bank Otkritie"
       period: "Aug 2008 — Mar 2012"
       label: "Banking applications"
-      description: >-
-        Started in part-time development and progressed to a software engineer
-        role, building C++/SQL banking applications, client messaging systems,
-        and internal tools.
 
 expertise:
   title: "Technical expertise"
@@ -145,13 +77,13 @@ expertise:
       title: "Local LLM experiment: reimplementing NATS Core in Rust"
       url: "/posts/self-hosted-llm-nats-rust/"
   agents:
-    title: "Engineering automation"
+    title: "AI-assisted development and automation"
     description: >-
-      I build agent workflows around repository discovery and design before
-      implementation, using custom skills, policies, and MCP integrations.
-      My tools include automated code review, issue monitoring, and an
-      experimental ticket-to-MR agent scoped to one repository. Generated
-      changes go through my review, linters, and unit and integration tests.
+      I use Claude daily for AI-assisted planning, implementation, debugging,
+      and testing, with custom skills, policies, and MCP integrations.
+      I also built issue monitoring tools and an experimental agent that
+      turns tickets into merge requests for one repository. Generated changes
+      go through code review and automated tests before approval.
   education:
     title: "Education"
     items:

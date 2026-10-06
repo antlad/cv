@@ -1,10 +1,10 @@
 # Vladislav Troinich — personal portal and CV
 
-The Hugo portal and PDF CV are separate documents with separate content sources:
+The Hugo portal and PDF CV are separate documents. Experience bullet text is shared:
 
-- `data/home.yaml`: concise portal profile, selected achievements, skills, and contact copy.
+- `data/home.yaml`: portal profile, experience headings/dates/labels, skills, and contact copy.
 - `hugo.toml`: site title, metadata, contact links, and public role positioning.
-- `Vladislav_Troinich_CV.yaml`: complete standalone CV, including experience, skills, education, and contacts. It does not depend on Hugo.
+- `Vladislav_Troinich_CV.yaml`: complete standalone CV and the source of truth for experience bullets. Hugo reads each matching role's `highlights` directly for the homepage and `llms.txt`. Edit those bullets here once to update both documents. Other portal text stays independent. The PDF build does not depend on Hugo.
 
 The career conversation and positioning Markdown files are private working notes, not publishing inputs. Public copy omits the private project, its duration, its scale figures, and compensation. Relevant technical skills remain in the profile. Litmus employment begins in November 2017.
 

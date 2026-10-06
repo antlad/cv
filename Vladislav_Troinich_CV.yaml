@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
-# Standalone CV source. Portal copy is maintained separately in data/home.yaml.
+# Standalone CV source; experience highlights also supply the portal's bullets.
 cv:
   name: Vladislav Troinich
   headline: Staff / Lead Software Engineer — Distributed Systems & Data Platforms
@@ -26,10 +26,16 @@ cv:
         summary: Industrial edge and data processing platform.
         highlights:
           - >-
-            Provide technical direction across about nine engineers, including
-            two technical leads. Review API and data-model changes, plan
+            Lead technical work for a data engineering group of up to 10
+            engineers, including two technical leads. Review API and data-model changes, plan
             migrations, and implement changes spanning collection, storage,
-            and delivery.
+            and delivery. Conduct technical and system-design interviews for
+            software engineers and give hiring recommendations.
+          - >-
+            Lead the response to urgent technical problems, deciding when to
+            patch a system and when to replace its implementation based on
+            risk, deadlines, and team capacity. Implement or delegate fixes
+            and validate them with integration tests.
           - >-
             Designed and built independent cloud and enterprise connectors
             with their own persistent buffers, replacing centralized data
@@ -54,9 +60,16 @@ cv:
             libraries. Introduced container-based integration testing in CI,
             later adopting Testcontainers.
           - >-
-            Built tools for code review and issue monitoring, and an
-            experimental ticket-to-MR agent scoped to one repository.
-            Review generated changes before approval.
+            Established AI-assisted code review in GitLab with project-specific
+            policies, linters, CI tests, and performance and security gates.
+            Required checks block merges with significant issues; I review
+            changes before final approval. This helped improve code quality
+            and reduce bugs.
+          - >-
+            Use Claude daily for AI-assisted development, with custom skills
+            for planning, implementation, debugging, and testing. Built issue
+            monitoring tools and an experimental agent that turns tickets
+            into merge requests for one repository.
       - company: Litmus Automation
         position: Senior Software Engineer
         start_date: 2017-11
@@ -69,8 +82,8 @@ cv:
             framework before other developers extended it. The architecture
             now supports all 250+ industrial drivers.
           - >-
-            Designed and built the OPC UA server using a Go controller and
-            C++ workers to use established C++ OPC UA libraries.
+            Designed and built the OPC UA server, combining a Go controller
+            with C++ workers to use established OPC UA libraries.
           - >-
             Designed and built time-series ingestion for device data, supporting
             both Python and Go controllers during migration. Tuned InfluxDB
@@ -79,8 +92,8 @@ cv:
             and TimescaleDB.
           - >-
             Designed and built external access through a NATS reverse proxy
-            with TLS, custom authentication, and UI-managed users and topic
-            settings. Enabled standard NATS clients to connect without the
+            with TLS, custom authentication, and configurable topics.
+            Enabled standard NATS clients to connect without the
             performance cost and custom client code required by the gRPC option.
           - >-
             Designed and built device-data publishing and analytics components

@@ -11,10 +11,7 @@ Full CV (PDF): {{ "vladislav-troinich-cv.pdf" | absURL }}
 {{ range $h.experience.items -}}
 ### {{ .role }}, {{ .company }} ({{ .period }})
 
-{{ .description | plainify | chomp }}
-
-{{ range .details }}{{ . | plainify | chomp }}
-
+{{ range partial "experience-highlights.html" . }}- {{ . | plainify | chomp }}
 {{ end }}
 {{ end }}
 ## Expertise
