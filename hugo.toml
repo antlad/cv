@@ -3,6 +3,17 @@ languageCode = "en-us"
 title = "Vladislav Troinich — Staff / Lead Software Engineer"
 disableKinds = ["taxonomy", "term"]
 
+# Serve the standalone RenderCV output in local previews and Hugo builds.
+# CI generates a fresh PDF into public/ after the Hugo build.
+[[module.mounts]]
+  source = "static"
+  target = "static"
+
+[[module.mounts]]
+  source = "rendercv_output"
+  target = "static"
+  includeFiles = ["vladislav-troinich-cv.pdf"]
+
 [markup.goldmark.renderer]
   unsafe = true
 

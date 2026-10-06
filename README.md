@@ -14,7 +14,9 @@ The career conversation and positioning Markdown files are private working notes
 hugo server
 ```
 
-The PDF link needs a generated PDF. To preview it with `hugo server`, copy a locally rendered PDF to `static/vladislav-troinich-cv.pdf` temporarily and remove it before committing; CI generates its own PDF. For a complete production preview, build both outputs into `public/` and serve that directory:
+The PDF link uses `rendercv_output/vladislav-troinich-cv.pdf`, generated with `bash scripts/build-cv.sh` or the direct RenderCV command below. Hugo includes this file automatically in local previews and site builds; no manual copy is needed. Regenerate it after changing the CV YAML. Only the PDF is included, not RenderCV's intermediate files. CI generates its own fresh PDF.
+
+For a complete production preview, build both outputs into `public/` and serve that directory:
 
 ```sh
 hugo --gc --minify
