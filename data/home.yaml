@@ -18,12 +18,19 @@ experience:
       company: "Litmus Automation"
       period: "Oct 2020 — present"
       label: "Industrial edge and data systems"
+      # Public product result: https://litmus.io/blog/1-million-tags-per-second-with-litmus-edge
       description: >-
-        Established AI-assisted code review in GitLab with project-specific
-        policies, linters, CI tests, and performance and security gates.
-        Required checks block significant issues before my final review.
-        The process has helped improve code quality and reduce bugs.
+        At Litmus, I lead technical work across industrial data collection,
+        processing, storage, and delivery, combining architecture reviews
+        with hands-on implementation and performance analysis. Litmus reported
+        throughput of 1 million tags per second and 2 million internal broker
+        messages per second in 2023.
       details:
+        - >-
+          Established AI-assisted code review in GitLab with project-specific
+          policies, linters, CI tests, and performance and security gates.
+          Required checks block significant issues before my final review.
+          The process has helped improve code quality and reduce bugs.
         - >-
           Use Claude daily for AI-assisted planning, implementation,
           debugging, and testing, with custom skills, policies, and MCP
@@ -58,17 +65,16 @@ experience:
       period: "Nov 2017 — Oct 2020"
       label: "Industrial connectivity and storage"
       description: >-
-        Joined early in the platform's development and designed and built
-        the Go controller and Go/C++ workers to replace the Python
-        device-collection stack. Implemented the first Modbus, OPC UA, and
-        BACnet drivers to validate the design before other developers extended
-        the framework. This controller → worker → driver architecture, built
-        in 2018, remains the foundation for all 250+ industrial drivers.
+        I designed and built the original Go controller and Go/C++ worker
+        architecture in 2018, replacing the Python device-collection stack
+        and implementing the initial drivers to establish and validate the
+        framework. Other engineers subsequently expanded the driver library
+        to 250+. The architecture remains in production, and I continue
+        reviewing and validating changes as the collection service evolves.
       details:
         - >-
           Designed and built the OPC UA server using a Go controller and
-          C++ workers to use established OPC UA libraries. Continued reviewing
-          architecture and API changes after handing over the driver component.
+          C++ workers to use established OPC UA libraries.
         - >-
           Designed and implemented time-series ingestion for industrial device data.
           It supported both the original Python controller and the new Go
@@ -76,14 +82,15 @@ experience:
           to keep memory use within edge-device limits. The component started
           with internal InfluxDB storage and later added external databases,
           including different InfluxDB versions and TimescaleDB.
+        # Current module scope: https://litmus.io/blog/edge-analytics-litmus-edge
         - >-
           Built external access through a NATS reverse proxy with TLS,
           custom authentication, and configurable topics.
           Customers could connect with standard NATS clients, avoiding the
           performance cost and custom client code required by the gRPC option.
-          Designed and built device-data publishing and analytics
-          components; the early analytics design remains in use without major
-          architectural changes.
+          I designed and built device-data publishing and the early analytics
+          components. Their core analytics architecture remains in use as the
+          module has grown to include more than 30 statistical functions.
     - role: "Senior Software Engineer"
       company: "Sberbank Technology"
       period: "Aug 2015 — Nov 2017"

@@ -18,12 +18,28 @@ cv:
         data platforms. My work spans distributed storage, messaging, and data
         processing, combining architecture and technical leadership with
         implementation and performance analysis.
+    technical_skills:
+      - label: Languages
+        details: Go (Golang), C++, Python
+      - label: Distributed systems
+        details: Concurrency, data pipelines, persistent buffering and recovery, backward-compatible storage and API migrations
+      - label: APIs & messaging
+        details: gRPC, REST, GraphQL, MQTT, NATS, Kafka
+      - label: Data & storage
+        details: PostgreSQL (pgx, sqlc), TimescaleDB, InfluxDB, Redis, BoltDB, BadgerDB, LMDB, MongoDB/GridFS
+      - label: Observability
+        details: OpenTelemetry, Prometheus, Grafana, Jaeger, VictoriaMetrics
+      - label: Infrastructure & testing
+        details: Linux, Docker, Kubernetes, AWS, GitLab CI/CD, Testcontainers, integration testing
     experience:
       - company: Litmus Automation
         position: Lead Software Engineer
         start_date: 2020-10
         end_date: present
-        summary: Industrial edge and data processing platform.
+        # Public product result: https://litmus.io/blog/1-million-tags-per-second-with-litmus-edge
+        summary: >-
+          Industrial edge and data processing platform. Published throughput:
+          1M tags/sec and 2M broker messages/sec (Litmus, 2023).
         highlights:
           - >-
             Established AI-assisted code review in GitLab with project-specific
@@ -76,11 +92,12 @@ cv:
         end_date: 2020-10
         highlights:
           - >-
-            Stabilized the Python device-collection stack, then designed and
-            built the Go controller and Go/C++ workers in 2018. Implemented
-            the first Modbus, OPC UA, and BACnet drivers to validate the
-            framework before other developers extended it. The architecture
-            now supports all 250+ industrial drivers.
+            Designed and built the Go/C++ device-collection architecture and
+            a small initial set of drivers in 2018. The architecture remains
+            the production foundation for 250+ industrial drivers, with
+            subsequent drivers implemented by other engineers. Continue
+            reviewing and validating architectural and API changes as the
+            service evolves.
           - >-
             Designed and built the OPC UA server, combining a Go controller
             with C++ workers to use established OPC UA libraries.
@@ -95,10 +112,11 @@ cv:
             with TLS, custom authentication, and configurable topics.
             Enabled standard NATS clients to connect without the
             performance cost and custom client code required by the gRPC option.
+          # Current module scope: https://litmus.io/blog/edge-analytics-litmus-edge
           - >-
             Designed and built device-data publishing and analytics components
-            in Go, C++, and Python. The early analytics design remains in use
-            without major architectural changes.
+            in Go, C++, and Python. The core analytics architecture remains in
+            use in a module now offering 30+ statistical functions.
       - company: Sberbank Technology
         position: Senior Software Engineer
         start_date: 2015-08
@@ -137,19 +155,7 @@ cv:
           - >-
             Developed banking applications, client messaging systems, and
             internal tools using C++ and SQL.
-    technical_skills:
-      - label: Languages
-        details: Go (Golang), C++, Python, SQL
-      - label: Distributed systems
-        details: Concurrency, data pipelines, persistent buffering and recovery, backward-compatible storage and API migrations
-      - label: APIs & messaging
-        details: gRPC, REST, GraphQL, MQTT, NATS, Kafka
-      - label: Data & storage
-        details: PostgreSQL (pgx, sqlc), TimescaleDB, InfluxDB, Redis, BoltDB, BadgerDB, LMDB, MongoDB/GridFS
-      - label: Observability
-        details: OpenTelemetry, Prometheus, Grafana, Jaeger, VictoriaMetrics
-      - label: Infrastructure & testing
-        details: Linux, Docker, Kubernetes, AWS, GitLab CI/CD, Testcontainers, integration testing
+
     education:
       - institution: St. Petersburg State University of Aerospace Instrumentation
         area: Information Systems
